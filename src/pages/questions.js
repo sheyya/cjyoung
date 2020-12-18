@@ -49,7 +49,7 @@ const Questions = () => {
 
   const nxtBtnClick = () => {
     answer.push("cmt: " + comment)
-    if (sid == 3) {
+    if (sid === 3) {
       setshowComment(false)
     }
     let ques = quiz.slice(sid, eid)
@@ -102,7 +102,7 @@ const Questions = () => {
             setEid(eid - 1)
             setSid(sid - 1)
           }
-          if (sid == 0) {
+          if (sid === 0) {
             navigate("/")
           }
           if (sid < 5) {
@@ -152,10 +152,10 @@ const Questions = () => {
                       setEid(eid + 1)
                       setSid(sid + 1)
                     }
-                    if (sid == 3) {
+                    if (sid === 3) {
                       setBtn("Finish")
                     }
-                    if (sid == 4) {
+                    if (sid === 4) {
                       navigate("/regDashbord")
                     }
 

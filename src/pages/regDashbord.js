@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Button from "@material-ui/core/Button"
 import "../assets/css/styles.css"
 import DoneIcon from "@material-ui/icons/Done"
@@ -196,19 +196,19 @@ const Dashboard = () => {
   //   //console.log(q5A);
 
   //console.log("///////", q1.slice(-1).toString().slice(0, 3))
-  if (q1.slice(-1).toString().slice(0, 3) == "cmt") {
+  if (q1.slice(-1).toString().slice(0, 3) === "cmt") {
     q1.pop()
   }
-  if (q2.slice(-1).toString().slice(0, 3) == "cmt") {
+  if (q2.slice(-1).toString().slice(0, 3) === "cmt") {
     q2.pop()
   }
-  if (q3.slice(-1).toString().slice(0, 3) == "cmt") {
+  if (q3.slice(-1).toString().slice(0, 3) === "cmt") {
     q3.pop()
   }
-  if (q4.slice(-1).toString().slice(0, 3) == "cmt") {
+  if (q4.slice(-1).toString().slice(0, 3) === "cmt") {
     q4.pop()
   }
-  if (q5.slice(-1).toString().slice(0, 3) == "cmt") {
+  if (q5.slice(-1).toString().slice(0, 3) === "cmt") {
     q5.pop()
   }
   return (
@@ -720,7 +720,7 @@ const Dashboard = () => {
             </div>
             <div className="col-lg-4 photo">
               <div className="photo-hover">
-                <img src={Image} className="img-fluid" />
+                <img src={Image} className="img-fluid" alt="" />
               </div>
               <p>
                 C.J.Young is a Doctor of Business Administration (DBA) in
