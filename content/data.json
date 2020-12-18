@@ -1,0 +1,76 @@
+[
+  {
+    "question": "When an employee leaves what is/are the biggest concern/s Organizations face various issues when employees leave?",
+    "info": "Choose all that apply",
+    "answers": [
+      "Know-how is locked in the employee",
+      "Work stops when employees leave",
+      "Customer satisfaction suffers",
+      " Team cohesiveness drops",
+      "Key certifications would be lost",
+      "We are not concerned about employees leaving"
+    ],
+    "correct": ["We are not concerned about employees leaving"],
+    "questionId": "001"
+  },
+  {
+    "question": "What prevents employees from sharing information? It\"s usually hard for employees to share information because it takes effort and the benefits are not clear",
+    "info": "Choose all that apply",
+    "answers": [
+      "Lack of systems and processes to share information",
+      "They are not motivated to share information",
+      "Worry that someone else will know more and be seen as more valuable",
+      "Worry about losing promotions and raises",
+      "They are sharing information perfectly"
+    ],
+    "correct": ["They are sharing information perfectly"],
+    "questionId": "002"
+  },
+  {
+    "question": "How do you test how the company will function in the absence of the key employee? These tests are a valuable exercise to understand the resilience of the organization under stress",
+    "info": "Choose all that apply",
+    "answers": [
+      "By enforcing vacations where the employee can’t communicate with the company",
+      "By moving employees to a different location where employee can communicate with company",
+      "We don’t test this"
+    ],
+    "correct": [
+      "By enforcing vacations where the employee can’t communicate with the company",
+      "By moving employees to a different location where employee can communicate with company"
+    ],
+    "questionId": "003"
+  },
+  {
+    "question": "What is being done by the company to ensure that knowledge about company processes are shared?",
+    "info": "Please explain the effort the company puts towards this goal",
+    "answers": [
+      "We train and motivate employees to share information",
+      "We have processes and systems to share information",
+      "We make knowledge sharing a part of the annual/quarterly evaluation process",
+      "None of the above"
+    ],
+    "correct": [
+      "We train and motivate employees to share information",
+      "We have processes and systems to share information",
+      "We make knowledge sharing a part of the annual/quarterly evaluation process"
+    ],
+    "questionId": "004"
+  },
+  {
+    "question": "What best describes you?",
+    "info": "So we can provide responses tailored to your needs",
+    "answers": [
+      "CEO / Owner / Investor",
+      "Manager",
+      "Non Managerial Employee",
+      "Student"
+    ],
+    "correct": [
+      "CEO / Owner / Investor",
+      "Manager",
+      "Non Managerial Employee",
+      "Student"
+    ],
+    "questionId": "005"
+  }
+]
