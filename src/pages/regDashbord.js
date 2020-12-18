@@ -4,6 +4,7 @@ import "../assets/css/styles.css"
 import DoneIcon from "@material-ui/icons/Done"
 import { navigate } from "gatsby"
 import Dash from "../assets/img/dash.svg"
+import { localStorageMemory } from "localstorage-memory"
 import Adashblock from "../components/adashblock"
 import Image from "../images/cjyoung.jpg"
 import axios from "axios"
@@ -57,21 +58,21 @@ const Dashboard = () => {
     //   phone: uphone,
     // })
     //console.log(formData)
-    localStorage.setItem("user", JSON.stringify(formData))
+    localStorageMemory.setItem("user", JSON.stringify(formData))
     setShow(true)
-    // localStorage.setItem("user", JSON.stringify(formData))
+    // localStorageMemory.setItem("user", JSON.stringify(formData))
   }
 
   const selectOPtion = option => {
     setPackage(option)
-    localStorage.setItem("user", JSON.stringify(formData))
-    localStorage.setItem("package", option)
+    localStorageMemory.setItem("user", JSON.stringify(formData))
+    localStorageMemory.setItem("package", option)
     if (formData.phone == null) {
       setShowPhone(true)
     } else {
-      let user = localStorage.getItem("user")
+      let user = localStorageMemory.getItem("user")
       let questions = { q1: q1raw, q2: q2raw, q3: q3raw, q4: q4raw, q5: q5raw }
-      let selectedPackage = localStorage.getItem("package")
+      let selectedPackage = localStorageMemory.getItem("package")
       let data = { user: user, config: questions, package: selectedPackage }
       console.log(data)
 
@@ -86,7 +87,7 @@ const Dashboard = () => {
             console.log("success")
             setShow(false)
             setShowPhone(false)
-            localStorage.clear()
+            localStorageMemory.clear()
             navigate("/thankyou")
           })
           .catch(err => {
@@ -101,13 +102,13 @@ const Dashboard = () => {
   //   const q1A = [];
 
   let q1A = ["We are not concerned about employees leaving"]
-  var q1 = localStorage
+  var q1 = localStorageMemory
     .getItem(
       "When an employee leaves what is/are the biggest concern/s Organizations face various issues when employees leave?"
     )
     .split(",")
     .filter(Boolean)
-  let q1raw = localStorage
+  let q1raw = localStorageMemory
     .getItem(
       "When an employee leaves what is/are the biggest concern/s Organizations face various issues when employees leave?"
     )
@@ -118,13 +119,13 @@ const Dashboard = () => {
   //   const q2A = [];
 
   let q2A = ["They are sharing information perfectly"]
-  var q2 = localStorage
+  var q2 = localStorageMemory
     .getItem(
       'What prevents employees from sharing information? It"s usually hard for employees to share information because it takes effort and the benefits are not clear'
     )
     .split(",")
     .filter(Boolean)
-  let q2raw = localStorage
+  let q2raw = localStorageMemory
     .getItem(
       'What prevents employees from sharing information? It"s usually hard for employees to share information because it takes effort and the benefits are not clear'
     )
@@ -139,13 +140,13 @@ const Dashboard = () => {
     "By enforcing vacations where the employee can’t communicate with the company",
     "By moving employees to a different location where employee can communicate with company",
   ]
-  var q3 = localStorage
+  var q3 = localStorageMemory
     .getItem(
       "How do you test how the company will function in the absence of the key employee? These tests are a valuable exercise to understand the resilience of the organization under stress"
     )
     .split(",")
     .filter(Boolean)
-  let q3raw = localStorage
+  let q3raw = localStorageMemory
     .getItem(
       "How do you test how the company will function in the absence of the key employee? These tests are a valuable exercise to understand the resilience of the organization under stress"
     )
@@ -161,13 +162,13 @@ const Dashboard = () => {
     "We have processes and systems to share information",
     "We make knowledge sharing a part of the annual/quarterly evaluation process",
   ]
-  var q4 = localStorage
+  var q4 = localStorageMemory
     .getItem(
       "What is being done by the company to ensure that knowledge about company processes are shared?"
     )
     .split(",")
     .filter(Boolean)
-  let q4raw = localStorage
+  let q4raw = localStorageMemory
     .getItem(
       "What is being done by the company to ensure that knowledge about company processes are shared?"
     )
@@ -184,11 +185,11 @@ const Dashboard = () => {
     "Non Managerial Employee",
     "Student",
   ]
-  var q5 = localStorage
+  var q5 = localStorageMemory
     .getItem("What best describes you?")
     .split(",")
     .filter(Boolean)
-  let q5raw = localStorage
+  let q5raw = localStorageMemory
     .getItem("What best describes you?")
     .split(",")
     .filter(Boolean)

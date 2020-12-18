@@ -7,6 +7,7 @@ import Qblock from "../components/qblock"
 import { makeStyles } from "@material-ui/core/styles"
 import QUp from "../images/qUp.svg"
 import QDown from "../images/qDown.svg"
+import { localStorageMemory } from "localstorage-memory"
 import { navigate } from "gatsby"
 import JSONData from "../../content/data.json"
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace"
@@ -55,7 +56,7 @@ const Questions = () => {
     let ques = quiz.slice(sid, eid)
     let adata = answer
     let data = ques[0].question
-    localStorage.setItem(data, adata)
+    localStorageMemory.setItem(data, adata)
     setAnswer([])
     setComment("")
     // adata = null;
