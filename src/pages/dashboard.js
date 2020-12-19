@@ -51,17 +51,19 @@ const Dashboard = () => {
     q4 = localStorage.getItem("4").split(",").filter(Boolean)
   }
 
-  if (q1.slice(-1).toString().slice(0, 3) === "cmt") {
-    q1.pop()
-  }
-  if (q2.slice(-1).toString().slice(0, 3) === "cmt") {
-    q2.pop()
-  }
-  if (q3.slice(-1).toString().slice(0, 3) === "cmt") {
-    q3.pop()
-  }
-  if (q4.slice(-1).toString().slice(0, 3) === "cmt") {
-    q4.pop()
+  if (q1 != null && q2 != null && q3 != null && q4 != null) {
+    if (q1.slice(-1).toString().slice(0, 3) === "cmt") {
+      q1.pop()
+    }
+    if (q2.slice(-1).toString().slice(0, 3) === "cmt") {
+      q2.pop()
+    }
+    if (q3.slice(-1).toString().slice(0, 3) === "cmt") {
+      q3.pop()
+    }
+    if (q4.slice(-1).toString().slice(0, 3) === "cmt") {
+      q4.pop()
+    }
   }
 
   return (
