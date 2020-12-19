@@ -32,20 +32,23 @@ const Dashboard = () => {
     "We have processes and systems to share information",
     "We make knowledge sharing a part of the annual/quarterly evaluation process",
   ]
-
+  var q1
+  var q2
+  var q3
+  var q4
   if (typeof window !== "undefined") {
-    var q1 = localStorage.getItem("1").split(",").filter(Boolean)
+    q1 = localStorage.getItem("1").split(",").filter(Boolean)
     //console.log("---------q1", q1)
   } else {
     //console.log("we are running on the server")
   }
 
   if (typeof window !== "undefined") {
-    var q2 = localStorage.getItem("2").split(",").filter(Boolean)
+    q2 = localStorage.getItem("2").split(",").filter(Boolean)
 
-    var q3 = localStorage.getItem("3").split(",").filter(Boolean)
+    q3 = localStorage.getItem("3").split(",").filter(Boolean)
 
-    var q4 = localStorage.getItem("4").split(",").filter(Boolean)
+    q4 = localStorage.getItem("4").split(",").filter(Boolean)
   }
 
   if (q1.slice(-1).toString().slice(0, 3) === "cmt") {
