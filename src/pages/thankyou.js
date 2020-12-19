@@ -35,10 +35,16 @@ const Thankyou = () => {
           >
             Thank You!
           </h1>
-          <p>You will hear from us shortly at</p>
+          <p style={{ fontSize: "19px", fontWeight: "500" }}>
+            You will hear from us shortly at
+          </p>
           <div className="row userdetail">
-            <p>{formData.email}</p>
-            <p>{formData.phone}</p>
+            <div>
+              <p>{formData.email}</p>
+            </div>
+            <div>
+              <p>{formData.phone}</p>
+            </div>
           </div>
         </div>
         {/* </div>{" "}

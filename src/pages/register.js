@@ -109,7 +109,7 @@ const Register = () => {
                       onChange={formValueChange}
                       pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
                       name="phone"
-                      placeholder="+34 987 388 36795"
+                      placeholder="+12 123 456 7890"
                     />
                   </div>
                   <Button

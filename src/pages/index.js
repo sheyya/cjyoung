@@ -9,8 +9,8 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 
 const Home = () => (
   <div>
-    <img src={BgCurve} id="bg" alt="" />
     <header className="masthead">
+      <img src={BgCurve} id="bg" alt="" />
       <div className="container h-100">
         <div className="row h-100">
           <div className="col-lg-7 my-auto">
