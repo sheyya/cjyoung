@@ -487,6 +487,7 @@ header.masthead .device-container .screen img {
   box-shadow: 5px 5px 20px rgba(39, 39, 39, 0.12);
   padding: 0;
   margin: 5px;
+  background-color: #ffffff;
 }
 
 .select {
