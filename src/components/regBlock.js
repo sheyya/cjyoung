@@ -6,7 +6,7 @@ import { navigate } from "gatsby"
 import Dash from "../assets/img/dash.svg"
 import Adashblock from "../components/adashblock"
 import Image from "../images/cjyoung.jpg"
-import { localStorageMemory } from "localstorage-memory"
+//import { localStorageMemory } from "localstorage-memory"
 
 const RegBlock = () => {
   const [formData, setFormData] = useState({
@@ -28,7 +28,7 @@ const RegBlock = () => {
       phone: uphone,
     })
     //console.log(formData)
-    localStorageMemory.setItem("user", JSON.stringify(formData))
+    localStorage.setItem("user", JSON.stringify(formData))
   }
 
   return (
@@ -66,7 +66,7 @@ const RegBlock = () => {
           <div className="group-input">
             <label>Phone Number</label>
             <input
-              type="text"
+              type="tel"
               required
               // onChange={getformData}
               name="phone"

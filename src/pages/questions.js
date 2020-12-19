@@ -6,8 +6,10 @@ import Qblock from "../components/qblock"
 // import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles"
 import QUp from "../images/qUp.svg"
+import { ToastContainer, Zoom, toast } from "react-toastify"
 import QDown from "../images/qDown.svg"
-import { localStorageMemory } from "localstorage-memory"
+import "react-toastify/dist/ReactToastify.css"
+//import { localStorageMemory } from "localstorage-memory"
 import { navigate } from "gatsby"
 import JSONData from "../../content/data.json"
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace"
@@ -28,11 +30,38 @@ const Questions = () => {
   const [btnName, setBtn] = useState("Next")
   const [answer, setAnswer] = useState([])
   const [comment, setComment] = useState("")
+  const [qVal, setqVal] = useState(1)
   const [showComment, setshowComment] = useState(true)
 
+  const [checkedq1, setCheckedq1] = useState(false)
+  const [checkedq2, setCheckedq2] = useState(false)
+  const [checkedq3, setCheckedq3] = useState(false)
+  const [checkedq4, setCheckedq4] = useState(false)
+  const [checkedq5, setCheckedq5] = useState(false)
+  const [checkedq6, setCheckedq6] = useState(false)
+
   const handleCheckbox = e => {
+    console.log(checkedq1)
+    if (e.target.value == quiz.slice(sid, eid)[0].answers[0]) {
+      setCheckedq1(old => !old)
+    }
+    if (e.target.value == quiz.slice(sid, eid)[0].answers[1]) {
+      setCheckedq2(old => !old)
+    }
+    if (e.target.value == quiz.slice(sid, eid)[0].answers[2]) {
+      setCheckedq3(old => !old)
+    }
+    if (e.target.value == quiz.slice(sid, eid)[0].answers[3]) {
+      setCheckedq4(old => !old)
+    }
+    if (e.target.value == quiz.slice(sid, eid)[0].answers[4]) {
+      setCheckedq5(old => !old)
+    }
+    if (e.target.value == quiz.slice(sid, eid)[0].answers[5]) {
+      setCheckedq6(old => !old)
+    }
     let data = answer
-    //console.log(data)
+    console.log(data)
     if (e.target.checked) {
       data.push(e.target.value)
       setAnswer(data)
@@ -49,18 +78,59 @@ const Questions = () => {
   }
 
   const nxtBtnClick = () => {
-    answer.push("cmt: " + comment)
-    if (sid === 3) {
-      setshowComment(false)
+    if (
+      !checkedq1 &&
+      !checkedq2 &&
+      !checkedq3 &&
+      !checkedq4 &&
+      !checkedq5 &&
+      !checkedq6
+    ) {
+      // alertalert("Please Select an answer")
+      warntoast()
+    } else {
+      if (sid < 4 && eid < 5) {
+        setEid(eid + 1)
+        setSid(sid + 1)
+      }
+      if (sid === 3) {
+        setBtn("Finish")
+      }
+      if (sid === 4) {
+        navigate("/register")
+      }
+      answer.push("cmt: " + comment)
+      if (sid === 3) {
+        setshowComment(false)
+      }
+      // let ques = quiz.slice(sid, eid)
+      let adata = answer
+      // let data = ques[0].question
+      var data = qVal
+      var datan = data + 1
+      setqVal(datan)
+      localStorage.setItem(qVal, adata)
+      setAnswer([])
+      setComment("")
+      setCheckedq1(false)
+      setCheckedq2(false)
+      setCheckedq3(false)
+      setCheckedq4(false)
+      setCheckedq5(false)
+      setCheckedq6(false)
+      console.log("------data----", adata)
     }
-    let ques = quiz.slice(sid, eid)
-    let adata = answer
-    let data = ques[0].question
-    localStorageMemory.setItem(data, adata)
-    setAnswer([])
-    setComment("")
     // adata = null;
-    //console.log("------data----", adata)
+  }
+
+  const warntoast = () => {
+    toast.warn("Please select an answer!", {
+      className: "custom-toast",
+      draggable: "true",
+      closeOnClick: "true",
+
+      position: toast.POSITION.TOP_CENTER,
+    })
   }
 
   // const history = useHistory();
@@ -89,37 +159,13 @@ const Questions = () => {
     <div>
       <img src={QUp} id="bgu" alt="" />
       <img src={QDown} id="bgd" alt="" />
-      <Button
-        size="medium"
-        variant="contained"
-        className={classes.margin}
-        disableElevation
-        style={{ backgroundColor: "transparent", color: "#000000" }}
-        startIcon={<KeyboardBackspaceIcon />}
-        onClick={() => {
-          //console.log(sid)
-
-          if (sid < 5 && eid < 6) {
-            setEid(eid - 1)
-            setSid(sid - 1)
-          }
-          if (sid === 0) {
-            navigate("/")
-          }
-          if (sid < 5) {
-            //console.log("run")
-
-            setBtn("Next")
-          }
-          //console.log(eid, sid)
-        }}
-      >
-        Back
-      </Button>
 
       <header className="masthead">
         <div className="container h-100">
           <div className="row h-100">
+            <ToastContainer
+              style={{ color: "black", fontWeight: "500", textAlign: "center" }}
+            />
             <div className="col-lg-12 my-auto">
               {quiz.slice(sid, eid).map(quiz => (
                 <Qblock
@@ -129,6 +175,12 @@ const Questions = () => {
                   show={showComment}
                   handleCheckbox={handleCheckbox}
                   onChangeComment={onChangeComment}
+                  check1={checkedq1}
+                  check2={checkedq2}
+                  check3={checkedq3}
+                  check4={checkedq4}
+                  check5={checkedq5}
+                  check6={checkedq6}
                 />
               ))}
               <div
@@ -146,20 +198,40 @@ const Questions = () => {
               <div className="nxtButton">
                 <Button
                   variant="contained"
+                  className={classes.margin}
+                  disableElevation
+                  style={{ backgroundColor: "#EA745Bt", color: "#000000" }}
+                  startIcon={<KeyboardBackspaceIcon />}
+                  onClick={() => {
+                    //console.log(sid)
+                    setCheckedq1(false)
+                    setCheckedq2(false)
+                    setCheckedq3(false)
+                    setCheckedq4(false)
+                    setCheckedq5(false)
+                    setCheckedq6(false)
+                    if (sid < 5 && eid < 6) {
+                      setEid(eid - 1)
+                      setSid(sid - 1)
+                    }
+                    if (sid === 0) {
+                      navigate("/")
+                    }
+                    if (sid < 5) {
+                      //console.log("run")
+
+                      setBtn("Next")
+                    }
+                    //console.log(eid, sid)
+                  }}
+                >
+                  Back
+                </Button>
+                <Button
+                  variant="contained"
                   style={{ backgroundColor: "#EA745B", color: "#ffffff" }}
                   startIcon={<KeyboardArrowRightIcon />}
                   onClick={() => {
-                    if (sid < 4 && eid < 5) {
-                      setEid(eid + 1)
-                      setSid(sid + 1)
-                    }
-                    if (sid === 3) {
-                      setBtn("Finish")
-                    }
-                    if (sid === 4) {
-                      navigate("/regDashbord")
-                    }
-
                     nxtBtnClick()
                     //console.log(eid, sid)
                   }}

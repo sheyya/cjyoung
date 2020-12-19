@@ -1,5 +1,5 @@
 import CheckCircleIcon from "@material-ui/icons/CheckCircle"
-import CancelIcon from "@material-ui/icons/Cancel"
+import ErrorIcon from "@material-ui/icons/Error"
 import React from "react"
 
 const Adashblock = ({ answers, correctA, index }) => {
@@ -12,6 +12,7 @@ const Adashblock = ({ answers, correctA, index }) => {
   //   } else {
   //     crr = ["undefined"];
   //   }
+  console.log("//////", answers, correctA)
 
   //console.log("----------", answers.slice(-1, 0))
 
@@ -19,6 +20,8 @@ const Adashblock = ({ answers, correctA, index }) => {
 
   //console.log("------", index)
   //console.log(sid)
+  console.log(answers)
+  console.log(crr)
 
   if (answers === crr.toString()) {
     Icon = "correct"
@@ -32,7 +35,7 @@ const Adashblock = ({ answers, correctA, index }) => {
       return <CheckCircleIcon style={{ color: "#1abc9c" }} />
     }
     if (Icon === "incorrect") {
-      return <CancelIcon style={{ color: "#e74c3c" }} />
+      return <ErrorIcon style={{ color: "#f1c40f" }} />
     } else {
       return <CheckCircleIcon style={{ color: "#1abc9c" }} />
     }

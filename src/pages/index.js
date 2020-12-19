@@ -44,8 +44,8 @@ const Home = () => (
               </div>
               <br />
               <p className="my-3">
-                <mark>Dr. Cindy Young</mark> built this checklist working with a
-                few companies including the US Navy.
+                <b>Dr. Cindy Young</b> built this checklist working with a few
+                companies including the US Navy.
                 <br />
                 <br />
                 To see how your company compares with industry best practices,

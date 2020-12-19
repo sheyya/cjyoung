@@ -1,7 +1,10 @@
 [
   {
     "question": "When an employee leaves what is/are the biggest concern/s Organizations face various issues when employees leave?",
-    "info": "Choose all that apply",
+    "info": [
+      "Organizations face various issues when employees leave.",
+      "Choose all that apply"
+    ],
     "answers": [
       "Know-how is locked in the employee",
       "Work stops when employees leave",
@@ -14,8 +17,11 @@
     "questionId": "001"
   },
   {
-    "question": "What prevents employees from sharing information? It\"s usually hard for employees to share information because it takes effort and the benefits are not clear",
-    "info": "Choose all that apply",
+    "question": "What prevents employees from sharing information?",
+    "info": [
+      "It's usually hard for employees to share information because it takes effort and the benefits are not clear",
+      "Choose all that apply"
+    ],
     "answers": [
       "Lack of systems and processes to share information",
       "They are not motivated to share information",
@@ -27,8 +33,11 @@
     "questionId": "002"
   },
   {
-    "question": "How do you test how the company will function in the absence of the key employee? These tests are a valuable exercise to understand the resilience of the organization under stress",
-    "info": "Choose all that apply",
+    "question": "How do you test how the company will function in the absence of the key employee?",
+    "info": [
+      " These tests are a valuable exercise to understand the resilience of the organization under stress",
+      "Choose all that apply"
+    ],
     "answers": [
       "By enforcing vacations where the employee can’t communicate with the company",
       "By moving employees to a different location where employee can communicate with company",
@@ -42,7 +51,10 @@
   },
   {
     "question": "What is being done by the company to ensure that knowledge about company processes are shared?",
-    "info": "Please explain the effort the company puts towards this goal",
+    "info": [
+      "Please explain the effort the company puts towards this goal",
+      "Choose all that apply"
+    ],
     "answers": [
       "We train and motivate employees to share information",
       "We have processes and systems to share information",
@@ -58,7 +70,10 @@
   },
   {
     "question": "What best describes you?",
-    "info": "So we can provide responses tailored to your needs",
+    "info": [
+      "So we can provide responses tailored to your needs",
+      "Choose what best describes you or please fill in something in the text box."
+    ],
     "answers": [
       "CEO / Owner / Investor",
       "Manager",

@@ -69,9 +69,6 @@ p {
   top: 0;
   width: 100%;
 }
-mark {
-  background-color: coral;
-}
 
 header.masthead {
   position: relative;
@@ -160,14 +157,38 @@ header.masthead .device-container .screen img {
   margin-bottom: 2em;
 }
 
+.thank {
+  background-color: #e9ecef;
+}
+
+.userdetail {
+  text-align: center;
+  display: inline-flex !important;
+}
+
+.userdetail p {
+  margin-left: 10px;
+}
+
 .qblockQ {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
+}
+
+.qblockQ h2 {
+  font-weight: 600 !important;
 }
 
 .info {
+  font-size: 22px;
+  color: #383838;
+  font-weight: 500 !important;
+}
+
+.info-choose {
   font-size: medium;
   color: #383838;
-  font-weight: 500;
+  font-weight: 450 !important;
+  margin-top: 30px;
 }
 
 /* Dashboard  */
@@ -235,7 +256,7 @@ header.masthead .device-container .screen img {
 
 .dashboard h2 {
   margin-top: 2em;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .photo img {
@@ -295,7 +316,7 @@ header.masthead .device-container .screen img {
   max-width: 80%;
 }
 
-..vertical-alignment-helper {
+.vertical-alignment-helper {
   display: table;
   height: 100%;
   width: 100%;
@@ -328,7 +349,7 @@ header.masthead .device-container .screen img {
 }
 
 .bigfix {
-  margin: 4em 0em 6em 0em;
+  margin: 3.5em 0em 6em 0em;
 }
 
 /* Dashbord Details */
@@ -367,7 +388,7 @@ header.masthead .device-container .screen img {
 }
 
 .freefix {
-  margin-bottom: 10px !important;
+  margin-bottom: 15px !important;
   display: flex !important;
   margin-top: 10px !important;
 }
@@ -381,9 +402,16 @@ header.masthead .device-container .screen img {
   text-decoration: line-through;
 }
 
+.pricingTitle {
+  margin-top: 2em;
+  margin-bottom: 2.6em;
+  font-family: "Poppins";
+  font-size: 2.2em;
+  font-weight: 600 !important;
+}
+
 .free {
   text-decoration: none !important;
-  margin-left: 15px;
   font-weight: 600;
   font-size: 30px !important;
   color: #1abc9c;
@@ -392,6 +420,10 @@ header.masthead .device-container .screen img {
 .expSection {
   margin-top: 4em;
   margin-bottom: 4em;
+}
+
+.expSection ul {
+  margin-top: 1.7em;
 }
 
 .expSection h5 {
@@ -445,6 +477,24 @@ header.masthead .device-container .screen img {
   text-align: center;
 }
 
+.priceBody {
+  text-align: left;
+  display: block;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.priceBody p {
+  margin-left: 10px;
+}
+
+.priceBlock {
+  text-align: center !important;
+  margin-top: 1.5em;
+  margin-bottom: 2em;
+  margin-left: 0 !important;
+}
+
 .priceName {
   padding: 10px;
   background-color: #ffd8ca;
@@ -467,7 +517,7 @@ header.masthead .device-container .screen img {
 }
 
 .pBody {
-  padding: 10px;
+  padding: 15px;
 }
 
 footer {
