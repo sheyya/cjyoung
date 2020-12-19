@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import Button from "@material-ui/core/Button"
 import "../assets/css/styles.css"
 import DoneIcon from "@material-ui/icons/Done"
@@ -7,36 +7,46 @@ import { navigate } from "gatsby"
 import Adashblock from "../components/adashblock"
 import Image from "../images/cjyoung.jpg"
 import CallIcon from "@material-ui/icons/Call"
-import Modal from "react-bootstrap/Modal"
 
-if (localStorage.getItem("1") == null) {
-  localStorage.setItem("1", "")
-  localStorage.setItem("2", "")
-  localStorage.setItem("3", "")
-  localStorage.setItem("4", "")
-  localStorage.setItem("5", "")
+if (typeof window !== "undefined") {
+  if (localStorage.getItem("1") == null) {
+    localStorage.setItem("1", "")
+    localStorage.setItem("2", "")
+    localStorage.setItem("3", "")
+    localStorage.setItem("4", "")
+    localStorage.setItem("5", "")
+  }
+} else {
+  //console.log("we are running on the server")
 }
 
 const Dashboard = () => {
   let q1A = ["We are not concerned about employees leaving"]
-  var q1 = localStorage.getItem("1").split(",").filter(Boolean)
-  console.log("---------q1", q1)
-
   let q2A = ["They are sharing information perfectly"]
-  var q2 = localStorage.getItem("2").split(",").filter(Boolean)
-
   let q3A = [
     "By enforcing vacations where the employee can’t communicate with the company",
     "By moving employees to a different location where employee can communicate with company",
   ]
-  var q3 = localStorage.getItem("3").split(",").filter(Boolean)
-
   let q4A = [
     "We train and motivate employees to share information",
     "We have processes and systems to share information",
     "We make knowledge sharing a part of the annual/quarterly evaluation process",
   ]
-  var q4 = localStorage.getItem("4").split(",").filter(Boolean)
+
+  if (typeof window !== "undefined") {
+    var q1 = localStorage.getItem("1").split(",").filter(Boolean)
+    //console.log("---------q1", q1)
+  } else {
+    //console.log("we are running on the server")
+  }
+
+  if (typeof window !== "undefined") {
+    var q2 = localStorage.getItem("2").split(",").filter(Boolean)
+
+    var q3 = localStorage.getItem("3").split(",").filter(Boolean)
+
+    var q4 = localStorage.getItem("4").split(",").filter(Boolean)
+  }
 
   if (q1.slice(-1).toString().slice(0, 3) === "cmt") {
     q1.pop()

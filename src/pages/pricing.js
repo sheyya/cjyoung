@@ -1,29 +1,42 @@
-import React, { useState } from "react"
+import React from "react"
 import Button from "@material-ui/core/Button"
 import "../assets/css/styles.css"
 import { navigate } from "gatsby"
 import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import axios from "axios"
 import PUp from "../images/pricing.svg"
-import Modal from "react-bootstrap/Modal"
 
 const Princing = () => {
   // const [showPhone, setShowPhone] = useState(false)
   // const [spackage, setPackage] = useState("")
 
   const selectOPtion = option => {
-    // setPackage(option)
-    // localStorage.setItem("user", JSON.stringify(formData))
-    localStorage.setItem("package", option)
-    // if (formData.phone == null) {
-    //   setShowPhone(true)
-    // } else {
-    let user = localStorage.getItem("user")
-    let questions = { q1: q1raw, q2: q2raw, q3: q3raw, q4: q4raw, q5: q5raw }
-    let selectedPackage = localStorage.getItem("package")
-    let data = { user: user, config: questions, package: selectedPackage }
-    console.log(data)
+    let user
+    let questions
+    let selectedPackage
 
+    if (typeof window !== "undefined") {
+      let q1raw = localStorage.getItem("1").split(",").filter(Boolean)
+
+      let q2raw = localStorage.getItem("2").split(",").filter(Boolean)
+
+      let q3raw = localStorage.getItem("3").split(",").filter(Boolean)
+
+      let q4raw = localStorage.getItem("4").split(",").filter(Boolean)
+
+      let q5raw = localStorage.getItem("5").split(",").filter(Boolean)
+      // setPackage(option)
+      // localStorage.setItem("user", JSON.stringify(formData))
+      localStorage.setItem("package", option)
+      // if (formData.phone == null) {
+      //   setShowPhone(true)
+      // } else {
+      user = localStorage.getItem("user")
+      questions = { q1: q1raw, q2: q2raw, q3: q3raw, q4: q4raw, q5: q5raw }
+      selectedPackage = localStorage.getItem("package")
+    }
+    let data = { user: user, config: questions, package: selectedPackage }
+    //console.log(data)
     return new Promise((resolve, reject) => {
       return axios
         .post(
@@ -32,13 +45,13 @@ const Princing = () => {
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
-          console.log("success")
+          //console.log("success")
           // setShow(false)
           // setShowPhone(false)
           navigate("/thankyou")
         })
         .catch(err => {
-          //console.log("Failed", err)
+          ////console.log("Failed", err)
 
           reject({ code: 0, error: err })
         })
@@ -46,15 +59,11 @@ const Princing = () => {
     // }
   }
 
-  let q1raw = localStorage.getItem("1").split(",").filter(Boolean)
-
-  let q2raw = localStorage.getItem("2").split(",").filter(Boolean)
-
-  let q3raw = localStorage.getItem("3").split(",").filter(Boolean)
-
-  let q4raw = localStorage.getItem("4").split(",").filter(Boolean)
-
-  let q5raw = localStorage.getItem("5").split(",").filter(Boolean)
+  if (typeof window !== "undefined") {
+    //console.log("we are running on the client")
+  } else {
+    //console.log("we are running on the server")
+  }
 
   return (
     <div>

@@ -12,23 +12,23 @@ const Adashblock = ({ answers, correctA, index }) => {
   //   } else {
   //     crr = ["undefined"];
   //   }
-  console.log("//////", answers, correctA)
+  //console.log("//////", answers, correctA)
 
-  //console.log("----------", answers.slice(-1, 0))
+  ////console.log("----------", answers.slice(-1, 0))
 
   //   if(answers.slice(-1))
 
-  //console.log("------", index)
-  //console.log(sid)
-  console.log(answers)
-  console.log(crr)
+  ////console.log("------", index)
+  ////console.log(sid)
+  //console.log(answers)
+  //console.log(crr)
 
   if (answers === crr.toString()) {
     Icon = "correct"
   } else {
     Icon = "incorrect"
   }
-  //console.log("Icon", Icon)
+  ////console.log("Icon", Icon)
 
   const icondisplay = () => {
     if (Icon === "correct") {

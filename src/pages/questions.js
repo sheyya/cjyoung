@@ -6,7 +6,7 @@ import Qblock from "../components/qblock"
 // import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles"
 import QUp from "../images/qUp.svg"
-import { ToastContainer, Zoom, toast } from "react-toastify"
+import { ToastContainer, toast } from "react-toastify"
 import QDown from "../images/qDown.svg"
 import "react-toastify/dist/ReactToastify.css"
 //import { localStorageMemory } from "localstorage-memory"
@@ -41,38 +41,38 @@ const Questions = () => {
   const [checkedq6, setCheckedq6] = useState(false)
 
   const handleCheckbox = e => {
-    console.log(checkedq1)
-    if (e.target.value == quiz.slice(sid, eid)[0].answers[0]) {
+    //console.log(checkedq1)
+    if (e.target.value === quiz.slice(sid, eid)[0].answers[0]) {
       setCheckedq1(old => !old)
     }
-    if (e.target.value == quiz.slice(sid, eid)[0].answers[1]) {
+    if (e.target.value === quiz.slice(sid, eid)[0].answers[1]) {
       setCheckedq2(old => !old)
     }
-    if (e.target.value == quiz.slice(sid, eid)[0].answers[2]) {
+    if (e.target.value === quiz.slice(sid, eid)[0].answers[2]) {
       setCheckedq3(old => !old)
     }
-    if (e.target.value == quiz.slice(sid, eid)[0].answers[3]) {
+    if (e.target.value === quiz.slice(sid, eid)[0].answers[3]) {
       setCheckedq4(old => !old)
     }
-    if (e.target.value == quiz.slice(sid, eid)[0].answers[4]) {
+    if (e.target.value === quiz.slice(sid, eid)[0].answers[4]) {
       setCheckedq5(old => !old)
     }
-    if (e.target.value == quiz.slice(sid, eid)[0].answers[5]) {
+    if (e.target.value === quiz.slice(sid, eid)[0].answers[5]) {
       setCheckedq6(old => !old)
     }
     let data = answer
-    console.log(data)
+    //console.log(data)
     if (e.target.checked) {
       data.push(e.target.value)
       setAnswer(data)
     } else if (answer != null) {
-      //console.log("removed", answer)
+      ////console.log("removed", answer)
       setAnswer(answer.filter(item => item !== e.target.value))
     }
-    // //console.log(answer);
+    // ////console.log(answer);
   }
   const onChangeComment = e => {
-    // //console.log(data);
+    // ////console.log(data);
     // data.push(e.target.value);
     setComment(e.target.value)
   }
@@ -109,7 +109,11 @@ const Questions = () => {
       var data = qVal
       var datan = data + 1
       setqVal(datan)
-      localStorage.setItem(qVal, adata)
+      if (typeof window !== "undefined") {
+        localStorage.setItem(qVal, adata)
+      } else {
+        //console.log("we are running on the server")
+      }
       setAnswer([])
       setComment("")
       setCheckedq1(false)
@@ -118,7 +122,7 @@ const Questions = () => {
       setCheckedq4(false)
       setCheckedq5(false)
       setCheckedq6(false)
-      console.log("------data----", adata)
+      //console.log("------data----", adata)
     }
     // adata = null;
   }
@@ -203,7 +207,7 @@ const Questions = () => {
                   style={{ backgroundColor: "#EA745Bt", color: "#000000" }}
                   startIcon={<KeyboardBackspaceIcon />}
                   onClick={() => {
-                    //console.log(sid)
+                    ////console.log(sid)
                     setCheckedq1(false)
                     setCheckedq2(false)
                     setCheckedq3(false)
@@ -218,11 +222,11 @@ const Questions = () => {
                       navigate("/")
                     }
                     if (sid < 5) {
-                      //console.log("run")
+                      ////console.log("run")
 
                       setBtn("Next")
                     }
-                    //console.log(eid, sid)
+                    ////console.log(eid, sid)
                   }}
                 >
                   Back
@@ -233,7 +237,7 @@ const Questions = () => {
                   startIcon={<KeyboardArrowRightIcon />}
                   onClick={() => {
                     nxtBtnClick()
-                    //console.log(eid, sid)
+                    ////console.log(eid, sid)
                   }}
                 >
                   {btnName}

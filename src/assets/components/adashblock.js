@@ -13,19 +13,19 @@ const Adashblock = ({ answers, correctA, index }) => {
   //     crr = ["undefined"];
   //   }
 
-  //console.log("----------", answers.slice(-1, 0));
+  ////console.log("----------", answers.slice(-1, 0));
 
   //   if(answers.slice(-1))
 
-  //console.log("------", index);
-  //console.log(sid);
+  ////console.log("------", index);
+  ////console.log(sid);
 
   if (answers == crr.toString()) {
     Icon = "correct"
   } else {
     Icon = "incorrect"
   }
-  //console.log("Icon", Icon);
+  ////console.log("Icon", Icon);
 
   const icondisplay = () => {
     if (Icon == "correct") {

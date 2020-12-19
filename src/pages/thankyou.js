@@ -9,12 +9,16 @@ const Thankyou = () => {
 
   useEffect(() => {
     if (localStorage.getItem("user") != null) {
-      const email = JSON.parse(localStorage.getItem("user")).email
-      const phone = JSON.parse(localStorage.getItem("user")).phone
-      setFormData({ email, phone })
+      if (typeof window !== "undefined") {
+        const email = JSON.parse(localStorage.getItem("user")).email
+        const phone = JSON.parse(localStorage.getItem("user")).phone
+        setFormData({ email, phone })
+      }
     }
-    // console.log("///////", phone, email)
-    localStorage.clear()
+    // //console.log("///////", phone, email)
+    if (typeof window !== "undefined") {
+      localStorage.clear()
+    }
   }, [])
 
   return (

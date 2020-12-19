@@ -2,7 +2,7 @@ import Checkbox from "@material-ui/core/Checkbox"
 import FormGroup from "@material-ui/core/FormGroup"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import FormControl from "@material-ui/core/FormControl"
-import React, { useState } from "react"
+import React from "react"
 
 const Qblock = ({
   question,
@@ -24,14 +24,14 @@ const Qblock = ({
   //   setCount(count + 1)
   // }, [callback]);
   var checkq = [check1, check2, check3, check4, check5, check6]
-  console.log(checkq)
+  //console.log(checkq)
 
-  // console.log(count)
+  // //console.log(count)
 
   var i = -1
   var j = 0
   const infoPrint = () => {
-    // console.log("called", info[1])
+    // //console.log("called", info[1])
 
     if (info[1]) {
       return <h4 className="info-choose">{info[1]}</h4>
@@ -69,7 +69,7 @@ const Qblock = ({
               className="comment"
               style={{ display: !show ? "inline-flex" : "none" }}
             >
-              <label>Other</label>
+              <label htmlFor="other">Other</label>
               <input
                 style={{ width: "100%" }}
                 type="text"

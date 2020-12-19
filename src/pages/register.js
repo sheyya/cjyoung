@@ -5,10 +5,6 @@ import DoneIcon from "@material-ui/icons/Done"
 import { navigate } from "gatsby"
 import Dash from "../assets/img/dash.svg"
 //import { localStorageMemory } from "localstorage-memory"
-import Adashblock from "../components/adashblock"
-import Image from "../images/cjyoung.jpg"
-import axios from "axios"
-import Modal from "react-bootstrap/Modal"
 
 const Register = () => {
   // const [quizDash, setQuiz] = useState([])
@@ -19,7 +15,7 @@ const Register = () => {
   })
 
   // useEffect(() => {
-  //   //console.log(formData)
+  //   ////console.log(formData)
   // }, [submitData])
 
   // const getquiz = async () => {
@@ -41,7 +37,7 @@ const Register = () => {
 
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(formData)
+    //console.log(formData)
   }
 
   const submitData = event => {
@@ -54,8 +50,10 @@ const Register = () => {
     //   name: uname,
     //   phone: uphone,
     // })
-    //console.log(formData)
-    localStorage.setItem("user", JSON.stringify(formData))
+    ////console.log(formData)
+    if (typeof window !== "undefined") {
+      localStorage.setItem("user", JSON.stringify(formData))
+    }
     // setShow(true)
     // localStorage.setItem("user", JSON.stringify(formData))
     navigate("/dashboard")
@@ -83,7 +81,7 @@ const Register = () => {
               <div className="form mx-auto">
                 <form onSubmit={submitData}>
                   <div className="group-input">
-                    <label>Name</label>
+                    <label htmlFor="name">Name</label>
                     <input
                       type="text"
                       name="name"
@@ -93,7 +91,7 @@ const Register = () => {
                     />
                   </div>
                   <div className="group-input">
-                    <label>Email</label>
+                    <label htmlFor="email">Email</label>
                     <input
                       type="email"
                       name="email"
@@ -104,7 +102,7 @@ const Register = () => {
                     />
                   </div>
                   <div className="group-input">
-                    <label>Phone Number</label>
+                    <label htmlFor="phoneNumber">Phone Number</label>
                     <input
                       type="tel"
                       required
