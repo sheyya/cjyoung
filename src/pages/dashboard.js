@@ -80,9 +80,10 @@ const Dashboard = () => {
                 </h4>
               </div>
               <div className="answerBlock">
-                {q1.map((object, index) => (
-                  <Adashblock answers={object} index={index} correctA={q1A} />
-                ))}
+                {q1 &&
+                  q1.map((object, index) => (
+                    <Adashblock answers={object} index={index} correctA={q1A} />
+                  ))}
               </div>
             </div>
             <div className="qSection col-md-12 col-lg-6">
@@ -94,9 +95,10 @@ const Dashboard = () => {
                 </h4>
               </div>
               <div className="answerBlock">
-                {q2.map((object, index) => (
-                  <Adashblock answers={object} index={index} correctA={q2A} />
-                ))}
+                {q2 &&
+                  q2.map((object, index) => (
+                    <Adashblock answers={object} index={index} correctA={q2A} />
+                  ))}
               </div>
             </div>
             <div className="qSection col-md-12 col-lg-6">
@@ -107,9 +109,10 @@ const Dashboard = () => {
                 </h4>
               </div>
               <div className="answerBlock">
-                {q3.map((object, index) => (
-                  <Adashblock answers={object} index={index} correctA={q3A} />
-                ))}
+                {q3 &&
+                  q3.map((object, index) => (
+                    <Adashblock answers={object} index={index} correctA={q3A} />
+                  ))}
               </div>
             </div>
             <div className="qSection col-md-12 col-lg-6">
@@ -120,9 +123,10 @@ const Dashboard = () => {
                 </h4>
               </div>
               <div className="answerBlock">
-                {q4.map((object, index) => (
-                  <Adashblock answers={object} index={index} correctA={q4A} />
-                ))}
+                {q4 &&
+                  q4.map((object, index) => (
+                    <Adashblock answers={object} index={index} correctA={q4A} />
+                  ))}
               </div>
             </div>
 
