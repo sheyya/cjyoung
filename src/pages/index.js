@@ -1,6 +1,7 @@
 import React from "react"
 import Button from "@material-ui/core/Button"
 import "../assets/css/styles.css"
+import Head from "../components/Head/Head"
 import Landimg from "../assets/img/landimg.svg"
 import BgCurve from "../assets/img/bgCurveL.svg"
 import { Link } from "gatsby"
@@ -9,6 +10,7 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 
 const Home = () => (
   <div>
+    <Head />
     <img src={BgCurve} id="bg" alt="" />
     <header className="masthead">
       <div className="container h-100">

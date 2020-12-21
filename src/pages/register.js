@@ -1,9 +1,12 @@
 import React, { useState } from "react"
 import Button from "@material-ui/core/Button"
-import "../assets/css/styles.css"
+// import "../assets/css/styles.css"
 import DoneIcon from "@material-ui/icons/Done"
 import { navigate } from "gatsby"
-import Dash from "../assets/img/dash.svg"
+import PhoneInput from "react-phone-input-2"
+import Head from "../components/Head/Head"
+import "react-phone-input-2/lib/style.css"
+// import Dash from "../assets/img/dash.svg"
 //import { localStorageMemory } from "localstorage-memory"
 
 const Register = () => {
@@ -14,6 +17,32 @@ const Register = () => {
     phone: null,
   })
 
+  var name = formData.name
+  var email = formData.email
+  var phone = formData.phone
+
+  const VALIDATORS = {
+    NAME: input => /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(input),
+    EMAIL: input =>
+      // eslint-disable-next-line no-useless-escape
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        input
+      ),
+    PHONE: input =>
+      // eslint-disable-next-line no-useless-escape
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(input),
+    DESCRIPTION: input => input && input.length >= 100,
+  }
+
+  const isSignUpValid = () =>
+    name &&
+    email &&
+    phone &&
+    VALIDATORS.NAME(name) &&
+    VALIDATORS.EMAIL(email) &&
+    VALIDATORS.PHONE(phone)
+
+  const enabled = isSignUpValid()
   // useEffect(() => {
   //   ////console.log(formData)
   // }, [submitData])
@@ -34,9 +63,14 @@ const Register = () => {
   //     [name]: data,
   //   })
   // }
-
+  const handlePhoneChange = (phone, value) => {
+    setFormData({ ...formData, phone: phone })
+    console.log(formData)
+  }
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    console.log(formData)
+
     //console.log(formData)
   }
 
@@ -64,7 +98,8 @@ const Register = () => {
   return (
     // <header className="masthead" style={{ paddingTop: "20px" }}>
     <div>
-      <img src={Dash} id="bgdash" alt="" />
+      <Head />
+      {/* <img src={Dash} id="bgdash" alt="" /> */}
       <div className="container h-100">
         <div className=" h-100">
           <div className="col-lg-8 mx-auto">
@@ -95,7 +130,7 @@ const Register = () => {
                     <input
                       type="email"
                       name="email"
-                      pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,}$"
+                      pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'
                       placeholder="johndoe@gmail.com"
                       required
                       onChange={formValueChange}
@@ -103,19 +138,33 @@ const Register = () => {
                   </div>
                   <div className="group-input">
                     <label htmlFor="phoneNumber">Phone Number</label>
-                    <input
+                    <PhoneInput
+                      placeholder="+12 123 456 7890"
+                      country="us"
+                      // value={phoneValue}
+                      inputStyle={{ height: "50px", width: "100%" }}
+                      // flags={flags}
+                      inputProps={{
+                        name: "phone",
+                        required: true,
+                        // pattern: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+                      }}
+                      onChange={handlePhoneChange}
+                    />
+                    {/* <input
                       type="tel"
                       required
                       onChange={formValueChange}
                       pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
                       name="phone"
-                      placeholder="+34 987 388 36795"
-                    />
+                      placeholder="+12 123 456 7890"
+                    /> */}
                   </div>
                   <Button
                     type="submit"
                     className="site-btn login-btn"
                     variant="contained"
+                    disabled={!enabled}
                     style={{ backgroundColor: "#EA745B", color: "#ffffff" }}
                     startIcon={<DoneIcon />}
                   >

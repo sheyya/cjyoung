@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button"
 import "../assets/css/styles.css"
 import { navigate } from "gatsby"
 import CheckCircleIcon from "@material-ui/icons/CheckCircle"
+import Head from "../components/Head/Head"
 import axios from "axios"
 import PUp from "../images/pricing.svg"
 
@@ -67,6 +68,7 @@ const Princing = () => {
 
   return (
     <div>
+      <Head />
       <img src={PUp} id="bgu" alt="" />
       <header className="masthead">
         <div className="container h-100">
@@ -189,7 +191,7 @@ const Princing = () => {
                           <p>Zoom recordings of interviews with experts</p>
                         </div>
                         <p className="priceBlock">
-                          <b>Price :</b> $250/mo
+                          <b>Price :</b> $250 per month
                         </p>
                       </div>
                       <div className="select">
