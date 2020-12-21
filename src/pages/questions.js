@@ -88,29 +88,59 @@ const Questions = () => {
   const [q5chk3, setq5Chk3] = useState(false)
   const [q5chk4, setq5Chk4] = useState(false)
 
+  // const [q5select, setq5select] = useState()
+
   // useEffect(() => {
   var qvaln = quiz.slice(sid, eid)[0]
   // }, [q1answer, q2answer, q3answer, q4answer, q5answer])
 
   const handleCheckbox = e => {
     //console.log(checkedq1)
-    if (e.target.value === quiz.slice(sid, eid)[0].answers[0]) {
-      setCheckedq1(old => !old)
-    }
-    if (e.target.value === quiz.slice(sid, eid)[0].answers[1]) {
-      setCheckedq2(old => !old)
-    }
-    if (e.target.value === quiz.slice(sid, eid)[0].answers[2]) {
-      setCheckedq3(old => !old)
-    }
-    if (e.target.value === quiz.slice(sid, eid)[0].answers[3]) {
-      setCheckedq4(old => !old)
-    }
-    if (e.target.value === quiz.slice(sid, eid)[0].answers[4]) {
-      setCheckedq5(old => !old)
-    }
-    if (e.target.value === quiz.slice(sid, eid)[0].answers[5]) {
-      setCheckedq6(old => !old)
+    if (sid < 4) {
+      if (e.target.value === quiz.slice(sid, eid)[0].answers[0]) {
+        setCheckedq1(old => !old)
+      }
+      if (e.target.value === quiz.slice(sid, eid)[0].answers[1]) {
+        setCheckedq2(old => !old)
+      }
+      if (e.target.value === quiz.slice(sid, eid)[0].answers[2]) {
+        setCheckedq3(old => !old)
+      }
+      if (e.target.value === quiz.slice(sid, eid)[0].answers[3]) {
+        setCheckedq4(old => !old)
+      }
+      if (e.target.value === quiz.slice(sid, eid)[0].answers[4]) {
+        setCheckedq5(old => !old)
+      }
+      if (e.target.value === quiz.slice(sid, eid)[0].answers[5]) {
+        setCheckedq6(old => !old)
+      }
+    } else {
+      setq5Answer(e.target.value)
+      if (e.target.value === "CEO / Owner / Investor") {
+        setCheckedq1(old => !old)
+        setCheckedq2(false)
+        setCheckedq3(false)
+        setCheckedq4(false)
+      }
+      if (e.target.value === "Manager") {
+        setCheckedq1(false)
+        setCheckedq2(old => !old)
+        setCheckedq3(false)
+        setCheckedq4(false)
+      }
+      if (e.target.value === "Non Managerial Employee") {
+        setCheckedq1(false)
+        setCheckedq2(false)
+        setCheckedq3(old => !old)
+        setCheckedq4(false)
+      }
+      if (e.target.value === "Student") {
+        setCheckedq1(false)
+        setCheckedq2(false)
+        setCheckedq3(false)
+        setCheckedq4(old => !old)
+      }
     }
     let data
     //console.log(data)
@@ -190,18 +220,19 @@ const Questions = () => {
       }
     }
     if (sid === 4) {
-      data = q5answer
-      if (e.target.checked) {
-        console.log("----", sid)
-        if (data.indexOf(e.target.value) === -1) {
-          data.push(e.target.value)
-        }
-        setq5Answer(data)
-        console.log(q5answer)
-      } else if (q5answer != null) {
-        ////console.log("removed", answer)
-        setq5Answer(q5answer.filter(item => item !== e.target.value))
-      }
+      // data = q5answer
+      // if (e.target.checked) {
+      // console.log("----", sid)
+      // if (data.indexOf(e.target.value) === -1) {
+      //   data.push(e.target.value)
+      // }
+      // setq5Answer(q5select)
+      // console.log(q5answer)
+      // }
+      // else if (q5answer != null) {
+      //   ////console.log("removed", answer)
+      //   setq5Answer(q5answer.filter(item => item !== e.target.value))
+      // }
     }
     // ////console.log(answer);
   }
@@ -417,10 +448,10 @@ const Questions = () => {
       }
       if (datan + 1 === 5) {
         if (q5chk1 || q5chk2 || q5chk3 || q5chk4) {
-          setCheckedq1(q5chk1)
-          setCheckedq2(q5chk2)
-          setCheckedq3(q5chk3)
-          setCheckedq4(q5chk4)
+          // setCheckedq1(q5chk1)
+          // setCheckedq2(q5chk2)
+          // setCheckedq3(q5chk3)
+          // setCheckedq4(q5chk4)
         } else {
           setComment("")
           setCheckedq1(false)

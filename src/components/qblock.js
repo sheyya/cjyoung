@@ -54,32 +54,32 @@ const Qblock = ({
         {infoPrint()}
       </div>
       <div className="answers">
-        {!show && (
-          <RadioGroup
-            aria-label="role"
-            name="role1"
-            value={radioValue}
-            onChange={e => handleCheckbox(e)}
-          >
-            {answers.map(answer => {
-              var check = checkq[j]
-              i += 1
-              j += 1
-              return (
-                <FormControlLabel
-                  value={answers.slice(i, j)}
-                  checked={check}
-                  // onClick={setAChecked(old => !old)}
-                  control={<Radio color="primary" />}
-                  label={answers.slice(i, j)}
-                  labelPlacement="end"
-                />
-              )
-            })}
-          </RadioGroup>
-        )}
-        {show && (
-          <FormControl component="fieldset">
+        <FormControl component="fieldset">
+          {!show && (
+            <RadioGroup
+              aria-label="role"
+              name="role1"
+              value={radioValue}
+              onChange={e => handleCheckbox(e)}
+            >
+              {answers.map(answer => {
+                var check = checkq[j]
+                i += 1
+                j += 1
+                return (
+                  <FormControlLabel
+                    value={answers.slice(i, j)}
+                    checked={check}
+                    // onClick={setAChecked(old => !old)}
+                    control={<Radio color="primary" />}
+                    label={answers.slice(i, j)}
+                    labelPlacement="end"
+                  />
+                )
+              })}
+            </RadioGroup>
+          )}
+          {show && (
             <FormGroup aria-label="position" root>
               {answers.map(answer => {
                 var check = checkq[j]
@@ -113,8 +113,8 @@ const Qblock = ({
                 />
               </div>
             </FormGroup>
-          </FormControl>
-        )}
+          )}
+        </FormControl>
       </div>
     </div>
   )
