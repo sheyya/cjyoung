@@ -55,7 +55,7 @@ const Adashblock = ({ answers, correctA, index }) => {
           style={{
             display: showCmt ? "inline-flex" : "none",
 
-            color: "#535c68",
+            color: "#57606f",
           }}
         />
       )

@@ -154,12 +154,29 @@ header.masthead .device-container .screen img {
   background-color: rgba(255, 127, 80, 0.05);
   outline-style: none;
   border-top: none;
-  width: 50%;
+  width: auto;
   border-radius: 5px;
   border-left: none;
   border-right: none;
   border-bottom: solid coral 2px;
   padding: 3px 10px;
+}
+
+@media (min-width: 768px) {
+  .comment input {
+    margin-left: 1em;
+    margin-right: auto;
+    outline: none;
+    background-color: rgba(255, 127, 80, 0.05);
+    outline-style: none;
+    border-top: none;
+    width: 50%;
+    border-radius: 5px;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid coral 2px;
+    padding: 3px 10px;
+  }
 }
 
 .comment {
@@ -190,6 +207,28 @@ header.masthead .device-container .screen img {
 
 .qblockQ h2 {
   font-weight: 600 !important;
+  font-size: 25px;
+}
+
+.qblockQ h4 {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .qblockQ h2 {
+    font-weight: 600 !important;
+    font-size: 32px !important;
+  }
+}
+
+@media (min-width: 480px) {
+  .qblockQ h2 {
+    font-weight: 600 !important;
+    font-size: 28px;
+  }
+  .qblockQ h4 {
+    font-size: 22px;
+  }
 }
 
 .info {
@@ -388,13 +427,25 @@ button[disabled] {
 
 .thirtyBlock {
   /* box-shadow: 5px 0px 12px rgba(39, 39, 39, 0.5); */
-  width: fit-content;
+  width: max-content;
   background-color: #ffd8ca;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  padding: 5px 50px 5px 50px;
+  padding: 5px 20px 5px 20px;
   margin-bottom: 50px;
   margin-top: 50px;
+}
+
+@media (min-width: 450px) {
+  .thirtyBlock {
+    width: max-content;
+    background-color: #ffd8ca;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    padding: 5px 50px 5px 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
 }
 
 .detailfl {

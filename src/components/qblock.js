@@ -40,7 +40,7 @@ const Qblock = ({
     // //console.log("called", info[1])
 
     if (info[1]) {
-      return <h4 className="info-choose">{info[1]}</h4>
+      return <h5 className="info-choose">{info[1]}</h5>
     }
   }
   var radioValue

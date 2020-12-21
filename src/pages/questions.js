@@ -577,7 +577,7 @@ const Questions = () => {
                 className="comment"
                 style={{ display: showComment ? "block" : "none" }}
               >
-                <HelpIcon />
+                <HelpIcon style={{ color: "#57606f" }} />
                 <input
                   type="text"
                   value={comment}

@@ -80,11 +80,14 @@ const Dashboard = () => {
       return axios
         .patch(
           `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
-          { user: user }
+          { user: user, requestCall: true }
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
           console.log("success")
+          console.log(Response)
+          console.log(result)
+
           navigate("/pricingfree")
         })
         .catch(err => {
@@ -240,7 +243,7 @@ const Dashboard = () => {
                   <p className="free my-auto">FREE</p>
                 </div>
 
-                <div style={{ display: "flex" }}>
+                <div style={{ display: "grid" }}>
                   <Button
                     className="site-btn login-btn freefix"
                     variant="contained"
@@ -254,6 +257,7 @@ const Dashboard = () => {
                       color: "#ffffff",
                       fontSize: "15px",
                       fontWeight: "bold",
+                      marginRight: "auto",
                     }}
                     startIcon={<CallIcon />}
                   >
@@ -271,6 +275,8 @@ const Dashboard = () => {
                     >
                       OR
                     </p>
+                  </div>
+                  <div style={{ display: showPhone ? "none" : "flex" }}>
                     <Button
                       className="site-btn login-btn freefix"
                       variant="contained"
@@ -411,7 +417,7 @@ const Dashboard = () => {
                 <div className=" price">
                   <p className="free my-auto">FREE</p>
                 </div>
-                <div style={{ display: "flex" }}>
+                <div style={{ display: "grid" }}>
                   <Button
                     className="site-btn login-btn freefix"
                     variant="contained"
@@ -425,6 +431,7 @@ const Dashboard = () => {
                       color: "#ffffff",
                       fontSize: "15px",
                       fontWeight: "bold",
+                      marginRight: "auto",
                     }}
                     startIcon={<CallIcon />}
                   >
@@ -442,6 +449,8 @@ const Dashboard = () => {
                     >
                       OR
                     </p>
+                  </div>
+                  <div style={{ display: showPhone ? "none" : "flex" }}>
                     <Button
                       className="site-btn login-btn freefix"
                       variant="contained"
