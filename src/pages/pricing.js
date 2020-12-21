@@ -100,8 +100,19 @@ const Princing = () => {
                         </div>
                         <div style={{ display: "flex" }}>
                           <CheckCircleIcon />{" "}
-                          <p>Interview with experts in the field.</p>
+                          <p>
+                            Discuss the employee issues you face with Cindy
+                            Young
+                          </p>
                         </div>
+                        <div style={{ display: "flex" }}>
+                          <CheckCircleIcon />{" "}
+                          <p>
+                            Get access to recorded interviews with experts who
+                            discuss common effective solutions to problems
+                          </p>
+                        </div>
+
                         <p className="priceBlock">
                           <b>Price :</b> FREE
                         </p>
@@ -140,7 +151,7 @@ const Princing = () => {
                       <div className="priceBody">
                         <div style={{ display: "flex" }}>
                           <CheckCircleIcon />{" "}
-                          <p>Discuss common issues with Cindy Young</p>
+                          <p>Discuss solutions issues with Cindy Young</p>
                         </div>
                         <div style={{ display: "flex" }}>
                           <CheckCircleIcon />
