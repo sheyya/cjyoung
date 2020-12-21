@@ -148,7 +148,8 @@ header.masthead .device-container .screen img {
 }
 
 .comment input {
-  margin-left: 1em;
+  margin-left: auto;
+  margin-right: auto;
   outline: none;
   background-color: rgba(255, 127, 80, 0.05);
   outline-style: none;
@@ -164,6 +165,9 @@ header.masthead .device-container .screen img {
 .comment {
   margin-top: 5px;
   margin-bottom: 2em;
+  margin-left: 6px;
+  margin-right: 6px;
+  display: grid;
 }
 
 .thank {
@@ -206,6 +210,7 @@ header.masthead .device-container .screen img {
 .RegBox {
   margin-top: 2.5em;
   text-align: center;
+  background-color: #f8c391ce;
   /* padding: 40px 15px 40px 15px; */
   box-shadow: 5px 5px 20px rgba(39, 39, 39, 0.12);
   border-radius: 10px;
@@ -259,6 +264,7 @@ header.masthead .device-container .screen img {
   padding-right: 15px;
   border-radius: 5px;
 }
+
 .group-input input:focus {
   outline: none !important;
   background-color: rgba(255, 232, 211, 0.75);
@@ -301,16 +307,26 @@ header.masthead .device-container .screen img {
   font-weight: bold;
   text-align: center;
   font-size: 15px;
+  margin-top: 10px;
 }
 
 .icon {
   margin-right: 5px;
 }
 
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc !important;
+  color: #666666 !important;
+}
+
 .answers {
   display: flex;
   margin-left: 10px;
   text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .questionBlock {

@@ -1,6 +1,6 @@
 [
   {
-    "question": "When an employee leaves what is/are the biggest concern/s Organizations face various issues when employees leave?",
+    "question": "When an employee leaves what is/are the biggest concern/s?",
     "info": [
       "Organizations face various issues when employees leave.",
       "Choose all that apply"
@@ -9,12 +9,12 @@
       "Know-how is locked in the employee",
       "Work stops when employees leave",
       "Customer satisfaction suffers",
-      " Team cohesiveness drops",
+      "Team cohesiveness drops",
       "Key certifications would be lost",
       "We are not concerned about employees leaving"
     ],
     "correct": ["We are not concerned about employees leaving"],
-    "questionId": "001"
+    "questionId": "1"
   },
   {
     "question": "What prevents employees from sharing information?",
@@ -30,7 +30,7 @@
       "They are sharing information perfectly"
     ],
     "correct": ["They are sharing information perfectly"],
-    "questionId": "002"
+    "questionId": "2"
   },
   {
     "question": "How do you test how the company will function in the absence of the key employee?",
@@ -47,7 +47,7 @@
       "By enforcing vacations where the employee can’t communicate with the company",
       "By moving employees to a different location where employee can communicate with company"
     ],
-    "questionId": "003"
+    "questionId": "3"
   },
   {
     "question": "What is being done by the company to ensure that knowledge about company processes are shared?",
@@ -66,7 +66,7 @@
       "We have processes and systems to share information",
       "We make knowledge sharing a part of the annual/quarterly evaluation process"
     ],
-    "questionId": "004"
+    "questionId": "4"
   },
   {
     "question": "What best describes you?",
@@ -86,6 +86,6 @@
       "Non Managerial Employee",
       "Student"
     ],
-    "questionId": "005"
+    "questionId": "5"
   }
 ]

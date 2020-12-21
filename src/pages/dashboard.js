@@ -51,20 +51,20 @@ const Dashboard = () => {
     q4 = localStorage.getItem("4").split(",").filter(Boolean)
   }
 
-  if (q1 != null && q2 != null && q3 != null && q4 != null) {
-    if (q1.slice(-1).toString().slice(0, 3) === "cmt") {
-      q1.pop()
-    }
-    if (q2.slice(-1).toString().slice(0, 3) === "cmt") {
-      q2.pop()
-    }
-    if (q3.slice(-1).toString().slice(0, 3) === "cmt") {
-      q3.pop()
-    }
-    if (q4.slice(-1).toString().slice(0, 3) === "cmt") {
-      q4.pop()
-    }
-  }
+  // if (q1 != null && q2 != null && q3 != null && q4 != null) {
+  //   if (q1.slice(-1).toString().slice(0, 3) === "cmt") {
+  //     q1.pop()
+  //   }
+  //   if (q2.slice(-1).toString().slice(0, 3) === "cmt") {
+  //     q2.pop()
+  //   }
+  //   if (q3.slice(-1).toString().slice(0, 3) === "cmt") {
+  //     q3.pop()
+  //   }
+  //   if (q4.slice(-1).toString().slice(0, 3) === "cmt") {
+  //     q4.pop()
+  //   }
+  // }
 
   return (
     <div className="container h-100">
@@ -75,8 +75,7 @@ const Dashboard = () => {
             <div className="qSection col-md-12 col-lg-6">
               <div className="questionBlock2">
                 <h4>
-                  When an employee leaves what is/are the biggest concern/s
-                  Organizations face various issues when employees leave?
+                  When an employee leaves what is/are the biggest concern/s?
                 </h4>
               </div>
               <div className="answerBlock">
@@ -88,11 +87,7 @@ const Dashboard = () => {
             </div>
             <div className="qSection col-md-12 col-lg-6">
               <div className="questionBlock2">
-                <h4>
-                  What prevents employees from sharing information? It\"s
-                  usually hard for employees to share information because it
-                  takes effort and the benefits are not clear
-                </h4>
+                <h4>What prevents employees from sharing information?</h4>
               </div>
               <div className="answerBlock">
                 {q2 &&

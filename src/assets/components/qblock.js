@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
+import React, { useEffect, useState } from "react"
+import Checkbox from "@material-ui/core/Checkbox"
+import FormGroup from "@material-ui/core/FormGroup"
+import FormControlLabel from "@material-ui/core/FormControlLabel"
+import FormControl from "@material-ui/core/FormControl"
+import FormLabel from "@material-ui/core/FormLabel"
 
 const Qblock = ({
   question,
@@ -13,8 +13,8 @@ const Qblock = ({
   show,
   onChangeComment,
 }) => {
-  var i = -1;
-  var j = 0;
+  var i = -1
+  var j = 0
   return (
     <div>
       <div className="qblockQ">
@@ -24,22 +24,22 @@ const Qblock = ({
       <div className="answers">
         <FormControl component="fieldset">
           <FormGroup aria-label="position" root>
-            {answers.map((answer) => {
-              i += 1;
-              j += 1;
+            {answers.map(answer => {
+              i += 1
+              j += 1
               return (
                 <FormControlLabel
                   value={answers.slice(i, j)}
-                  onChange={(e) => handleCheckbox(e)}
+                  onChange={e => handleCheckbox(e)}
                   control={<Checkbox color="primary" />}
                   label={answers.slice(i, j)}
                   labelPlacement="end"
                 />
-              );
+              )
             })}
             <div
               className="comment"
-              style={{ display: !show ? "inline-flex" : "none" }}
+              style={{ display: !show ? "none" : "none" }}
             >
               <label>Other</label>
               <input
@@ -47,14 +47,14 @@ const Qblock = ({
                 type="text"
                 name="uComment"
                 placeholder="Type..."
-                onChange={(e) => onChangeComment(e)}
+                onChange={e => onChangeComment(e)}
               />
             </div>
           </FormGroup>
         </FormControl>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Qblock;
+export default Qblock
