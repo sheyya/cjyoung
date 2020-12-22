@@ -15,6 +15,7 @@ const Register = () => {
     name: null,
     email: null,
     phone: null,
+    requestCall: false,
   })
 
   var name = formData.name

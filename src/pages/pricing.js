@@ -42,6 +42,7 @@ const Princing = () => {
     let user
     let questions
     let selectedPackage
+    let config
 
     if (typeof window !== "undefined") {
       q1raw = localStorage.getItem("1").split(",").filter(Boolean)
@@ -59,11 +60,26 @@ const Princing = () => {
       // if (formData.phone == null) {
       //   setShowPhone(true)
       // } else {
-      user = localStorage.getItem("user")
+      user = JSON.parse(localStorage.getItem("user"))
       questions = { q1: q1raw, q2: q2raw, q3: q3raw, q4: q4raw, q5: q5raw }
       selectedPackage = localStorage.getItem("package")
+
+      config = {
+        questions: questions,
+        selectedPackage: selectedPackage,
+        requestCall: user.requestCall,
+      }
     }
-    let data = { user: user, config: questions, package: selectedPackage }
+
+    console.log(config)
+
+    let data = {
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      config: JSON.stringify(config),
+    }
+    console.log(data)
 
     if (typeof window !== "undefined") {
       localStorage.setItem("data", JSON.stringify(data))
@@ -78,13 +94,17 @@ const Princing = () => {
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
+          // console.log(result.data.id)
+          if (typeof window !== "undefined") {
+            localStorage.setItem("id", JSON.stringify(result.data.id))
+          }
           //console.log("success")
           // setShow(false)
           // setShowPhone(false)
           navigate("/thankyou")
         })
         .catch(err => {
-          ////console.log("Failed", err)
+          console.log("Failed", err)
           errortoast()
           reject({ code: 0, error: err })
         })

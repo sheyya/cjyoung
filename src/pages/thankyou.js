@@ -16,6 +16,7 @@ const Thankyou = () => {
     phone: "-",
   })
   const [datal, setData] = useState()
+  const [id, setId] = useState()
 
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -76,17 +77,24 @@ const Thankyou = () => {
       phone: formData.phone,
     }
 
-    let questions = datal.config
-    let selectedPackage = datal.package
+    let datalconfig = JSON.parse(datal.config)
+    console.log(datalconfig)
+
+    let questions = datalconfig.questions
+    let selectedPackage = datalconfig.selectedPackage
+
+    let config = {
+      questions: questions,
+      selectedPackage: selectedPackage,
+      requestCall: user.requestCall,
+    }
 
     var data = {
-      user: {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-      },
-      config: questions,
-      package: selectedPackage,
+      id: id,
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      config: JSON.stringify(config),
     }
 
     console.log(data)
@@ -100,6 +108,8 @@ const Thankyou = () => {
         .then(result => {
           resolve({ code: 200, message: result.data.message })
           console.log("success")
+          console.log(result)
+
           waittoast()
         })
         .catch(err => {
@@ -117,6 +127,8 @@ const Thankyou = () => {
         const phone = JSON.parse(localStorage.getItem("user")).phone
         const name = JSON.parse(localStorage.getItem("user")).name
         const data = JSON.parse(localStorage.getItem("data"))
+        const idval = JSON.parse(localStorage.getItem("id"))
+        setId(idval)
         setFormData({ name, email, phone })
         setData(data)
         console.log(datal)
