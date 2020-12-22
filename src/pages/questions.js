@@ -575,7 +575,7 @@ const Questions = () => {
               ))}
               <div
                 className="comment"
-                style={{ display: showComment ? "block" : "none" }}
+                style={{ display: showComment ? "flex" : "none" }}
               >
                 <HelpIcon style={{ color: "#57606f" }} />
                 <input
@@ -586,7 +586,7 @@ const Questions = () => {
                   onChange={e => onChangeComment(e)}
                 />
               </div>
-              <div className="nxtButton">
+              <div className="nxtButton" style={{ marginBottom: "20px" }}>
                 <Button
                   variant="contained"
                   className={classes.margin}

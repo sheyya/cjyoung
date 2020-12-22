@@ -8,6 +8,7 @@ import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import Head from "../components/Head/Head"
 import { ToastContainer, toast } from "react-toastify"
+import HomeIcon from "@material-ui/icons/Home"
 import "react-toastify/dist/ReactToastify.css"
 import { navigate } from "gatsby"
 
@@ -268,6 +269,18 @@ const Thankyou = () => {
                   startIcon={<UpdateIcon />}
                 >
                   Update
+                </Button>
+                <Button
+                  className="site-btn login-btn"
+                  variant="contained"
+                  style={{
+                    backgroundColor: "#1ABC9C",
+                    color: "#ffffff",
+                    marginLeft: "20px",
+                  }}
+                  startIcon={<HomeIcon />}
+                >
+                  Home
                 </Button>
               </form>
             </div>
