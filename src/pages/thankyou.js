@@ -98,19 +98,21 @@ const Thankyou = () => {
       config: JSON.stringify(config),
     }
 
-    //console.log(data)
+    // console.log(data)
 
     return new Promise((resolve, reject) => {
       return axios
         .put(
-          `https://cors-anywhere.herokuapp.com/https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
-          data
-          // {
-          //   headers: {
-          //     "Access-Control-Allow-Origin": "*",
-          //     "Access-Control-Allow-Methods": "GET,PUT,POST",
-          //   },
-          // }
+          `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
+          data,
+          {
+            headers: {
+              "Access-Control-Allow-Headers": "*",
+              "Access-Control-Allow-Methods": "GET,PUT,POST",
+              "Access-Control-Allow-Origin": "*",
+              "Content-Type": "application/json",
+            },
+          }
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
