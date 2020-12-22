@@ -273,6 +273,9 @@ const Thankyou = () => {
                 <Button
                   className="site-btn login-btn"
                   variant="contained"
+                  onClick={() => {
+                    navigate("/")
+                  }}
                   style={{
                     backgroundColor: "#1ABC9C",
                     color: "#ffffff",
