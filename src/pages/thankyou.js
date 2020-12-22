@@ -82,11 +82,12 @@ const Thankyou = () => {
 
     let questions = datalconfig.questions
     let selectedPackage = datalconfig.selectedPackage
+    let requestCall = datalconfig.requestCall
 
     let config = {
       questions: questions,
       selectedPackage: selectedPackage,
-      requestCall: user.requestCall,
+      requestCall: requestCall,
     }
 
     var data = {
@@ -103,7 +104,8 @@ const Thankyou = () => {
       return axios
         .put(
           `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
-          data
+          data,
+          { headers: { "Content-Type": "application/json" } }
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })

@@ -38,6 +38,7 @@ const Princingfree = () => {
     let user
     let questions
     let selectedPackage
+    let config
 
     if (typeof window !== "undefined") {
       let q1raw = localStorage.getItem("1").split(",").filter(Boolean)
