@@ -6,6 +6,8 @@ import axios from "axios"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import Head from "../components/Head/Head"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 const Thankyou = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ const Thankyou = () => {
     email: "-",
     phone: "-",
   })
+  const [datal, setData] = useState()
 
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -24,6 +27,46 @@ const Thankyou = () => {
     console.log(formData)
   }
 
+  const waittoast = () => {
+    toast.success("Updated!", {
+      className: "custom-toast",
+      draggable: "true",
+      closeOnClick: "true",
+
+      position: toast.POSITION.TOP_CENTER,
+    })
+  }
+
+  const errortoast = () => {
+    toast.error("Something went Wrong!", {
+      className: "custom-toast",
+      draggable: "true",
+      closeOnClick: "true",
+
+      position: toast.POSITION.TOP_CENTER,
+    })
+  }
+
+  var uemail = formData.email
+  var uphone = formData.phone
+
+  const VALIDATORS = {
+    EMAIL: input =>
+      // eslint-disable-next-line no-useless-escape
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        input
+      ),
+    PHONE: input =>
+      // eslint-disable-next-line no-useless-escape
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(input),
+    DESCRIPTION: input => input && input.length >= 100,
+  }
+
+  const isSignUpValid = () =>
+    uemail && uphone && VALIDATORS.EMAIL(uemail) && VALIDATORS.PHONE(uphone)
+
+  const enabled = isSignUpValid()
+
   const updateData = event => {
     event.preventDefault()
 
@@ -33,19 +76,35 @@ const Thankyou = () => {
       phone: formData.phone,
     }
 
+    let questions = datal.config
+    let selectedPackage = datal.package
+
+    var data = {
+      user: {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+      },
+      config: questions,
+      package: selectedPackage,
+    }
+
+    console.log(data)
+
     return new Promise((resolve, reject) => {
       return axios
-        .patch(
+        .put(
           `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
-          { user: user }
+          data
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
           console.log("success")
+          waittoast()
         })
         .catch(err => {
           ////console.log("Failed", err)
-
+          errortoast()
           reject({ code: 0, error: err })
         })
     })
@@ -57,12 +116,15 @@ const Thankyou = () => {
         const email = JSON.parse(localStorage.getItem("user")).email
         const phone = JSON.parse(localStorage.getItem("user")).phone
         const name = JSON.parse(localStorage.getItem("user")).name
+        const data = JSON.parse(localStorage.getItem("data"))
         setFormData({ name, email, phone })
+        setData(data)
+        console.log(datal)
       }
     }
     // //console.log("///////", phone, email)
     if (typeof window !== "undefined") {
-      localStorage.clear()
+      // localStorage.clear()
     }
   }, [])
 
@@ -74,6 +136,9 @@ const Thankyou = () => {
         style={{ verticalAlign: "middle", height: "100%" }}
       > */}
       <div className="conatiner">
+        <ToastContainer
+          style={{ color: "white", fontWeight: "500", textAlign: "center" }}
+        />
         <div
           className="jumbotron text-center"
           style={{ backgroundColor: "rgba(255, 198, 191, 0.856)" }}
@@ -143,6 +208,7 @@ const Thankyou = () => {
                 <Button
                   type="submit"
                   className="site-btn login-btn"
+                  disabled={!enabled}
                   variant="contained"
                   style={{ backgroundColor: "#EA745B", color: "#ffffff" }}
                   startIcon={<UpdateIcon />}

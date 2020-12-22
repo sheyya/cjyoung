@@ -6,10 +6,11 @@ import CheckCircleIcon from "@material-ui/icons/CheckCircle"
 import Head from "../components/Head/Head"
 import axios from "axios"
 import PUp from "../images/pricing.svg"
+import { Link } from "gatsby"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-const Princing = () => {
+const Princingfree = () => {
   // const [showPhone, setShowPhone] = useState(false)
   // const [spackage, setPackage] = useState("")
 
@@ -32,11 +33,6 @@ const Princing = () => {
       position: toast.POSITION.TOP_CENTER,
     })
   }
-  let q1raw = ""
-  let q2raw = ""
-  let q3raw = ""
-  let q4raw = ""
-  let q5raw = ""
 
   const selectOPtion = option => {
     let user
@@ -44,15 +40,15 @@ const Princing = () => {
     let selectedPackage
 
     if (typeof window !== "undefined") {
-      q1raw = localStorage.getItem("1").split(",").filter(Boolean)
+      let q1raw = localStorage.getItem("1").split(",").filter(Boolean)
 
-      q2raw = localStorage.getItem("2").split(",").filter(Boolean)
+      let q2raw = localStorage.getItem("2").split(",").filter(Boolean)
 
-      q3raw = localStorage.getItem("3").split(",").filter(Boolean)
+      let q3raw = localStorage.getItem("3").split(",").filter(Boolean)
 
-      q4raw = localStorage.getItem("4").split(",").filter(Boolean)
+      let q4raw = localStorage.getItem("4").split(",").filter(Boolean)
 
-      q5raw = localStorage.getItem("5").split(",").filter(Boolean)
+      let q5raw = localStorage.getItem("5").split(",").filter(Boolean)
       // setPackage(option)
       // localStorage.setItem("user", JSON.stringify(formData))
       localStorage.setItem("package", option)
@@ -64,12 +60,12 @@ const Princing = () => {
       selectedPackage = localStorage.getItem("package")
     }
     let data = { user: user, config: questions, package: selectedPackage }
+    console.log(data)
+    waittoast()
 
     if (typeof window !== "undefined") {
       localStorage.setItem("data", JSON.stringify(data))
     }
-    //console.log(data)
-    waittoast()
     return new Promise((resolve, reject) => {
       return axios
         .post(
@@ -109,7 +105,7 @@ const Princing = () => {
           />
           <div className=" h-100">
             <div className="mainPricing">
-              <h2 className="pricingTitle text-center">
+              <h2 className="freepricingTitle text-center">
                 FIND THE PERFECT PLAN FOR YOUR BUSINESS
                 <hr
                   style={{
@@ -118,10 +114,17 @@ const Princing = () => {
                     borderRadius: "5px",
                   }}
                 />
+                <Link
+                  to="/pricing"
+                  className="font-weight-500 text-dark mx-auto"
+                  style={{ fontSize: "20px" }}
+                >
+                  Other Packages
+                </Link>
               </h2>
 
               <div className="row h-100">
-                <div className="col-md-6 col-xl-3">
+                <div className="col-md-6 col-xl-4 mx-auto">
                   <div className="pricingBlock">
                     <div className="priceName">
                       <p className="priceType">FREE</p>
@@ -159,145 +162,6 @@ const Princing = () => {
                             variant="contained"
                             onClick={() => {
                               selectOPtion("Free")
-                            }}
-                            size="small"
-                            style={{
-                              backgroundColor: "#1ABC9C",
-                              color: "#ffffff",
-                              fontSize: "15px",
-                              fontWeight: "bold",
-                            }}
-                            // startIcon={<DoneIcon />}
-                          >
-                            SELECT
-                          </Button>
-                        </center>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-xl-3">
-                  <div className="pricingBlock">
-                    <div className="priceName">
-                      <p className="priceType">Paid</p>
-                      <p>Consultation</p>
-                    </div>
-                    <div className="pBody my-auto">
-                      <div className="priceBody">
-                        <div style={{ display: "flex" }}>
-                          <CheckCircleIcon />{" "}
-                          <p>Discuss solutions issues with Cindy Young</p>
-                        </div>
-                        <div style={{ display: "flex" }}>
-                          <CheckCircleIcon />
-                          <p>On Phone or Zoom depending on convenience</p>
-                        </div>
-                        <p className="priceBlock">
-                          <b>Price :</b> $100 for 30 minutes
-                        </p>
-                      </div>
-                      <div className="select">
-                        <center>
-                          <Button
-                            className="site-btn login-btn freefix"
-                            variant="contained"
-                            onClick={() => {
-                              selectOPtion("Paid")
-                            }}
-                            size="small"
-                            style={{
-                              backgroundColor: "#1ABC9C",
-                              color: "#ffffff",
-                              fontSize: "15px",
-                              fontWeight: "bold",
-                            }}
-                            // startIcon={<DoneIcon />}
-                          >
-                            SELECT
-                          </Button>
-                        </center>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-xl-3">
-                  <div className="pricingBlock">
-                    <div className="priceName">
-                      <p className="priceType">Starter</p>
-                      <p>Beginning Your Knowledge Management Journey</p>
-                    </div>
-                    <div className="pBody my-auto">
-                      <div className="priceBody">
-                        <div style={{ display: "flex" }}>
-                          <CheckCircleIcon />{" "}
-                          <p>Workbook to build knowledge management plan</p>
-                        </div>
-                        <div style={{ display: "flex" }}>
-                          <CheckCircleIcon />{" "}
-                          <p>Zoom recordings of interviews with experts</p>
-                        </div>
-                        <p className="priceBlock">
-                          <b>Price :</b> $250 per month
-                        </p>
-                      </div>
-                      <div className="select">
-                        <center>
-                          <Button
-                            className="site-btn login-btn freefix"
-                            variant="contained"
-                            onClick={() => {
-                              selectOPtion("Starter")
-                            }}
-                            size="small"
-                            style={{
-                              backgroundColor: "#1ABC9C",
-                              color: "#ffffff",
-                              fontSize: "15px",
-                              fontWeight: "bold",
-                            }}
-                            // startIcon={<DoneIcon />}
-                          >
-                            SELECT
-                          </Button>
-                        </center>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6 col-xl-3">
-                  <div className="pricingBlock">
-                    <div className="priceName">
-                      <p className="priceType">Professional</p>
-                      <p>Beginning Your Knowledge Management Journey</p>
-                    </div>
-                    <div className="pBody my-auto">
-                      <div className="priceBody">
-                        <div style={{ display: "flex" }}>
-                          <CheckCircleIcon />{" "}
-                          <p>Lifetime access to course material</p>
-                        </div>
-                        <div style={{ display: "flex" }}>
-                          <CheckCircleIcon />{" "}
-                          <p>
-                            Weekly Zoom calls with the class to discuss issues
-                          </p>
-                        </div>
-                        <div style={{ display: "flex" }}>
-                          <CheckCircleIcon />{" "}
-                          <p>Interview with experts for live case studies</p>
-                        </div>
-                        <p className="priceBlock">
-                          <b>Price :</b> $997 for 12 weeks of live sessions with
-                          experts
-                        </p>
-                      </div>
-                      <div className="select">
-                        <center>
-                          <Button
-                            className="site-btn login-btn freefix"
-                            variant="contained"
-                            onClick={() => {
-                              selectOPtion("Professional")
                             }}
                             size="small"
                             style={{
@@ -377,4 +241,4 @@ const Princing = () => {
   )
 }
 
-export default Princing
+export default Princingfree

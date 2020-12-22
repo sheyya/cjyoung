@@ -9,7 +9,7 @@ import Head from "../components/Head/Head"
 import CallIcon from "@material-ui/icons/Call"
 import React, { useEffect, useState } from "react"
 import UpdateIcon from "@material-ui/icons/Update"
-import axios from "axios"
+// import axios from "axios"
 import PhoneInput from "react-phone-input-2"
 import BusinessCenterIcon from "@material-ui/icons/BusinessCenter"
 import "react-phone-input-2/lib/style.css"
@@ -51,6 +51,18 @@ const Dashboard = () => {
     phone: "",
   })
 
+  var uphone = formData.phone
+
+  const VALIDATORS = {
+    PHONE: input =>
+      // eslint-disable-next-line no-useless-escape
+      /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(input),
+  }
+
+  const isSignUpValid = () => uphone && VALIDATORS.PHONE(uphone)
+
+  const enabled = isSignUpValid()
+
   useEffect(() => {
     if (localStorage.getItem("user") != null) {
       if (typeof window !== "undefined") {
@@ -74,28 +86,33 @@ const Dashboard = () => {
       name: formData.name,
       email: formData.email,
       phone: formData.phone,
+      requestCall: true,
     }
 
-    return new Promise((resolve, reject) => {
-      return axios
-        .patch(
-          `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
-          { user: user, requestCall: true }
-        )
-        .then(result => {
-          resolve({ code: 200, message: result.data.message })
-          console.log("success")
-          console.log(Response)
-          console.log(result)
+    if (typeof window !== "undefined") {
+      localStorage.setItem("user", JSON.stringify(user))
+    }
+    navigate("/pricingfree")
+    // return new Promise((resolve, reject) => {
+    //   return axios
+    //     .patch(
+    //       `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
+    //       { user: user, requestCall: true }
+    //     )
+    //     .then(result => {
+    //       resolve({ code: 200, message: result.data.message })
+    //       console.log("success")
+    //       console.log(Response)
+    //       console.log(result)
 
-          navigate("/pricingfree")
-        })
-        .catch(err => {
-          console.log("Failed", err)
+    //       navigate("/pricingfree")
+    //     })
+    //     .catch(err => {
+    //       console.log("Failed", err)
 
-          reject({ code: 0, error: err })
-        })
-    })
+    //       reject({ code: 0, error: err })
+    //     })
+    // })
   }
 
   if (typeof window !== "undefined") {
@@ -329,6 +346,7 @@ const Dashboard = () => {
                     type="submit"
                     className="site-btn login-btn"
                     variant="contained"
+                    disabled={!enabled}
                     style={{
                       backgroundColor: "#EA745B",
                       color: "#ffffff",
@@ -503,6 +521,7 @@ const Dashboard = () => {
                     type="submit"
                     className="site-btn login-btn"
                     variant="contained"
+                    disabled={!enabled}
                     style={{
                       backgroundColor: "#EA745B",
                       color: "#ffffff",

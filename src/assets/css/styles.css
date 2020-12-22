@@ -485,6 +485,18 @@ button[disabled] {
   text-decoration: line-through;
 }
 
+.freepricingTitle {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-family: "Poppins";
+  font-size: 2.2em;
+  font-weight: 600 !important;
+}
+
+.freepricingTitle a:hover {
+  color: #1abc9c;
+}
+
 .pricingTitle {
   margin-top: 2em;
   margin-bottom: 2.6em;
