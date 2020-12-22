@@ -20,12 +20,12 @@ const Thankyou = () => {
 
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(formData)
+    //console.log(formData)
   }
 
   const handlePhoneChange = (phone, value) => {
     setFormData({ ...formData, phone: phone })
-    console.log(formData)
+    //console.log(formData)
   }
 
   const waittoast = () => {
@@ -78,7 +78,7 @@ const Thankyou = () => {
     }
 
     let datalconfig = JSON.parse(datal.config)
-    console.log(datalconfig)
+    //console.log(datalconfig)
 
     let questions = datalconfig.questions
     let selectedPackage = datalconfig.selectedPackage
@@ -98,29 +98,29 @@ const Thankyou = () => {
       config: JSON.stringify(config),
     }
 
-    console.log(data)
+    //console.log(data)
 
     return new Promise((resolve, reject) => {
       return axios
         .put(
-          `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
-          data,
-          {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET,PUT,POST",
-            },
-          }
+          `https://cors-anywhere.herokuapp.com/https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
+          data
+          // {
+          //   headers: {
+          //     "Access-Control-Allow-Origin": "*",
+          //     "Access-Control-Allow-Methods": "GET,PUT,POST",
+          //   },
+          // }
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
-          console.log("success")
-          console.log(result)
+          //console.log("success")
+          //console.log(result)
 
           waittoast()
         })
         .catch(err => {
-          ////console.log("Failed", err)
+          //////console.log("Failed", err)
           errortoast()
           reject({ code: 0, error: err })
         })
@@ -138,10 +138,10 @@ const Thankyou = () => {
         setId(idval)
         setFormData({ name, email, phone })
         setData(data)
-        console.log(datal)
+        //console.log(datal)
       }
     }
-    // //console.log("///////", phone, email)
+    // ////console.log("///////", phone, email)
     if (typeof window !== "undefined") {
       // localStorage.clear()
     }

@@ -45,7 +45,7 @@ const Register = () => {
 
   const enabled = isSignUpValid()
   // useEffect(() => {
-  //   ////console.log(formData)
+  //   //////console.log(formData)
   // }, [submitData])
 
   // const getquiz = async () => {
@@ -66,13 +66,13 @@ const Register = () => {
   // }
   const handlePhoneChange = (phone, value) => {
     setFormData({ ...formData, phone: phone })
-    console.log(formData)
+    //console.log(formData)
   }
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(formData)
-
     //console.log(formData)
+
+    ////console.log(formData)
   }
 
   const submitData = event => {
@@ -85,7 +85,7 @@ const Register = () => {
     //   name: uname,
     //   phone: uphone,
     // })
-    ////console.log(formData)
+    //////console.log(formData)
     if (typeof window !== "undefined") {
       localStorage.setItem("user", JSON.stringify(formData))
     }

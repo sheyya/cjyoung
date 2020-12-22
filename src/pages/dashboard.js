@@ -23,7 +23,7 @@ if (typeof window !== "undefined") {
     localStorage.setItem("5", "")
   }
 } else {
-  //console.log("we are running on the server")
+  ////console.log("we are running on the server")
 }
 
 const Dashboard = () => {
@@ -76,7 +76,7 @@ const Dashboard = () => {
 
   const handlePhoneChange = (phone, value) => {
     setFormData({ ...formData, phone: phone })
-    console.log(formData)
+    //console.log(formData)
   }
 
   const updatePhone = event => {
@@ -101,14 +101,14 @@ const Dashboard = () => {
     //     )
     //     .then(result => {
     //       resolve({ code: 200, message: result.data.message })
-    //       console.log("success")
-    //       console.log(Response)
-    //       console.log(result)
+    //       //console.log("success")
+    //       //console.log(Response)
+    //       //console.log(result)
 
     //       navigate("/pricingfree")
     //     })
     //     .catch(err => {
-    //       console.log("Failed", err)
+    //       //console.log("Failed", err)
 
     //       reject({ code: 0, error: err })
     //     })
@@ -117,9 +117,9 @@ const Dashboard = () => {
 
   if (typeof window !== "undefined") {
     q1 = localStorage.getItem("1").split(",").filter(Boolean)
-    //console.log("---------q1", q1)
+    ////console.log("---------q1", q1)
   } else {
-    //console.log("we are running on the server")
+    ////console.log("we are running on the server")
   }
 
   if (typeof window !== "undefined") {

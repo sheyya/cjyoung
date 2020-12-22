@@ -20,18 +20,18 @@ const RegBlock = () => {
     const uemail = event.target.email.value
     const uname = event.target.name.value
     const uphone = event.target.phone.value
-    ////console.log(formData)
+    //////console.log(formData)
 
     await setFormData({
       email: uemail,
       name: uname,
       phone: uphone,
     })
-    ////console.log(formData)
+    //////console.log(formData)
     if (typeof window !== "undefined") {
       localStorage.setItem("user", JSON.stringify(formData))
     } else {
-      //console.log("we are running on the server")
+      ////console.log("we are running on the server")
     }
   }
 
