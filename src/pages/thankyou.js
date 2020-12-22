@@ -3,11 +3,13 @@ import UpdateIcon from "@material-ui/icons/Update"
 import "../assets/css/styles.css"
 import Button from "@material-ui/core/Button"
 import axios from "axios"
+import * as path from "path"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import Head from "../components/Head/Head"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { navigate } from "gatsby"
 
 const Thankyou = () => {
   const [formData, setFormData] = useState({
@@ -68,7 +70,7 @@ const Thankyou = () => {
 
   const enabled = isSignUpValid()
 
-  const updateData = event => {
+  const updateData = async event => {
     event.preventDefault()
 
     let user = {
@@ -90,43 +92,73 @@ const Thankyou = () => {
       requestCall: requestCall,
     }
 
-    var data = {
-      id: id,
-      name: user.name,
-      email: user.email,
-      phone: user.phone,
-      config: JSON.stringify(config),
+    var datan = {
+      config: {
+        newEmail: user.email,
+        newPhone: user.phone,
+        config: JSON.stringify(config),
+      },
+    }
+
+    // console.log(id)
+    // console.log(datan)
+
+    try {
+      const response = await axios({
+        method: "PUT",
+        url: path.join(
+          "https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log",
+          id
+        ),
+        data: datan,
+      })
+
+      // console.log(response.data)
+      waittoast()
+      setTimeout(
+        function () {
+          //Start the timer
+          navigate("/")
+        }.bind(this),
+        3350
+      )
+    } catch (error) {
+      const msg = "Server Error - Failed to update form information."
+      console.error(msg)
+      console.error(error)
+      errortoast()
     }
 
     // console.log(data)
 
-    return new Promise((resolve, reject) => {
-      return axios
-        .put(
-          `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log`,
-          data,
-          {
-            headers: {
-              "Access-Control-Allow-Headers": "*",
-              "Access-Control-Allow-Methods": "GET,PUT,POST",
-              "Access-Control-Allow-Origin": "*",
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then(result => {
-          resolve({ code: 200, message: result.data.message })
-          //console.log("success")
-          //console.log(result)
+    // return new Promise((resolve, reject) => {
+    //   return axios
+    //     .put(
+    //       `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log/${id}`,
 
-          waittoast()
-        })
-        .catch(err => {
-          //////console.log("Failed", err)
-          errortoast()
-          reject({ code: 0, error: err })
-        })
-    })
+    //       data,
+    //       {
+    //         headers: {
+    //           "Access-Control-Allow-Headers": "*",
+    //           "Access-Control-Allow-Methods": "GET,PUT,POST",
+    //           "Access-Control-Allow-Origin": "*",
+    //           "Content-Type": "application/json",
+    //         },
+    //       }
+    //     )
+    //     .then(result => {
+    //       resolve({ code: 200, message: result.data.message })
+    //       //console.log("success")
+    //       //console.log(result)
+
+    //       waittoast()
+    //     })
+    //     .catch(err => {
+    //       //////console.log("Failed", err)
+    //       errortoast()
+    //       reject({ code: 0, error: err })
+    //     })
+    // })
   }
 
   useEffect(() => {
@@ -135,17 +167,17 @@ const Thankyou = () => {
         const email = JSON.parse(localStorage.getItem("user")).email
         const phone = JSON.parse(localStorage.getItem("user")).phone
         const name = JSON.parse(localStorage.getItem("user")).name
-        const data = JSON.parse(localStorage.getItem("data"))
+        const udata = JSON.parse(localStorage.getItem("data"))
         const idval = JSON.parse(localStorage.getItem("id"))
         setId(idval)
         setFormData({ name, email, phone })
-        setData(data)
+        setData(udata)
         //console.log(datal)
       }
     }
     // ////console.log("///////", phone, email)
     if (typeof window !== "undefined") {
-      // localStorage.clear()
+      localStorage.clear()
     }
   }, [])
 
@@ -158,6 +190,7 @@ const Thankyou = () => {
       > */}
       <div className="conatiner">
         <ToastContainer
+          autoClose={3000}
           style={{ color: "white", fontWeight: "500", textAlign: "center" }}
         />
         <div
