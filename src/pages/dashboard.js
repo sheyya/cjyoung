@@ -16,6 +16,7 @@ import "react-phone-input-2/lib/style.css"
 import ProgressBar from "../components/progress"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Footer from "../components/footer"
 
 if (typeof window !== "undefined") {
   if (localStorage.getItem("1") == null) {
@@ -660,6 +661,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div style={{ marginTop: "5em" }}>
+        <Footer />
       </div>
     </>
   )

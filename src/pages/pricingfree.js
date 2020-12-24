@@ -9,6 +9,7 @@ import PUp from "../images/pricing.svg"
 import { Link } from "gatsby"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Footer from "../components/footer"
 
 const Princingfree = () => {
   // const [showPhone, setShowPhone] = useState(false)
@@ -252,6 +253,9 @@ const Princingfree = () => {
           </div>
         </div>
       </header>
+      <div style={{ marginTop: "5em" }}>
+        <Footer />
+      </div>
     </div>
   )
 }

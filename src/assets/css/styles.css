@@ -600,6 +600,7 @@ button[disabled] {
 
 .priceBody p {
   margin-left: 10px;
+  font-size: 15px;
 }
 
 .priceBlock {

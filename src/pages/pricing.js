@@ -8,6 +8,7 @@ import axios from "axios"
 import PUp from "../images/pricing.svg"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Footer from "../components/footer"
 
 const Princing = () => {
   // const [showPhone, setShowPhone] = useState(false)
@@ -122,7 +123,7 @@ const Princing = () => {
     <div>
       <Head />
       <img src={PUp} id="bgu" alt="" />
-      <header className="masthead">
+      <header className="masthead" style={{ height: "auto" }}>
         <div className="container h-100">
           <ToastContainer
             style={{ color: "white", fontWeight: "500", textAlign: "center" }}
@@ -406,6 +407,9 @@ const Princing = () => {
           </div>
         </div>
       </header>
+      <div style={{ marginTop: "5em" }}>
+        <Footer />
+      </div>
     </div>
   )
 }

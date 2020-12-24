@@ -72,7 +72,9 @@ const Home = () => (
           </div>
         </div>
       </div>
-      <Footer />
+      <div style={{ marginTop: "5em" }}>
+        <Footer />
+      </div>
     </header>
   </div>
 )

@@ -8,6 +8,7 @@ import axios from "axios"
 import PUp from "../images/pricing.svg"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import Footer from "../components/footer"
 
 const PrincingPre = () => {
   // const [showPhone, setShowPhone] = useState(false)
@@ -308,6 +309,9 @@ const PrincingPre = () => {
           </div>
         </div>
       </header>
+      <div style={{ marginTop: "5em" }}>
+        <Footer />
+      </div>
     </div>
   )
 }
