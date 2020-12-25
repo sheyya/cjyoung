@@ -27,7 +27,7 @@ if (typeof window !== "undefined") {
     localStorage.setItem("5", "")
   }
 } else {
-  ////console.log("we are running on the server")
+  //////console.log("we are running on the server")
 }
 
 const Dashboard = () => {
@@ -59,14 +59,14 @@ const Dashboard = () => {
   var comp = 0
   var score = 0
   const completedup = val => {
-    console.log(val)
+    //console.log(val)
     comp = comp + val
     setCompleted(comp)
     if (comp > 96) {
       setCompleted(100)
     }
     score = comp
-    // console.log(comp)
+    // //console.log(comp)
   }
 
   // useEffect(() => {
@@ -118,7 +118,7 @@ const Dashboard = () => {
     setFormData({ ...formData, phone: phone })
     setPhonevalid(true)
 
-    //console.log(formData)
+    ////console.log(formData)
   }
 
   const updatePhone = event => {
@@ -148,14 +148,14 @@ const Dashboard = () => {
     //     )
     //     .then(result => {
     //       resolve({ code: 200, message: result.data.message })
-    //       //console.log("success")
-    //       //console.log(Response)
-    //       //console.log(result)
+    //       ////console.log("success")
+    //       ////console.log(Response)
+    //       ////console.log(result)
 
     //       navigate("/pricingfree")
     //     })
     //     .catch(err => {
-    //       //console.log("Failed", err)
+    //       ////console.log("Failed", err)
 
     //       reject({ code: 0, error: err })
     //     })
@@ -164,9 +164,9 @@ const Dashboard = () => {
 
   if (typeof window !== "undefined") {
     q1 = localStorage.getItem("1").split(",").filter(Boolean)
-    ////console.log("---------q1", q1)
+    //////console.log("---------q1", q1)
   } else {
-    ////console.log("we are running on the server")
+    //////console.log("we are running on the server")
   }
 
   if (typeof window !== "undefined") {

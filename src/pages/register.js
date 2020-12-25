@@ -43,18 +43,18 @@ const Register = () => {
   const fireConversion = () => {
     if (!window || !window.gtag) {
       // eslint-disable-next-line no-console
-      console.log("No gtag function found.")
+      //console.log("No gtag function found.")
       return
     }
     // eslint-disable-next-line no-console
-    console.log("Firing GA Conversion Event.")
+    //console.log("Firing GA Conversion Event.")
     window.gtag("event", "conversion", {
       send_to: "AW-480677404/S619CLm1sOoBEJycmuUB",
       value: 1.0,
       currency: "USD",
       event_callback: () => {
         // eslint-disable-next-line no-console
-        console.log("GA Conversion Event Recorded.")
+        //console.log("GA Conversion Event Recorded.")
       },
     })
   }
@@ -63,21 +63,21 @@ const Register = () => {
     if (!VALIDATORS.NAME(name)) {
       setNamevalid(false)
     }
-    console.log(namevalid)
+    //console.log(namevalid)
   }
 
   const isEmail = () => {
     if (!VALIDATORS.EMAIL(email)) {
       setEmailvalid(false)
     }
-    console.log(namevalid)
+    //console.log(namevalid)
   }
 
   const isPhone = () => {
     if (!VALIDATORS.PHONE(phone)) {
       setPhonevalid(false)
     }
-    console.log(namevalid)
+    //console.log(namevalid)
   }
 
   const isSignUpValid = () =>
@@ -90,7 +90,7 @@ const Register = () => {
 
   // const enabled = isSignUpValid()
   // useEffect(() => {
-  //   //////console.log(formData)
+  //   ////////console.log(formData)
   // }, [submitData])
 
   // const getquiz = async () => {
@@ -112,25 +112,25 @@ const Register = () => {
   const handlePhoneChange = (phone, value) => {
     setFormData({ ...formData, phone: phone })
     setPhonevalid(true)
-    //console.log(formData)
+    ////console.log(formData)
   }
   const formValueChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    //console.log(formData)
+    ////console.log(formData)
     if (e.target.name === "name") {
       setNamevalid(true)
     }
 
     if (e.target.name === "email") {
-      console.log(emailvalid)
+      //console.log(emailvalid)
       setEmailvalid(true)
     }
 
-    ////console.log(formData)
+    //////console.log(formData)
   }
 
   const submitData = event => {
-    console.log(name)
+    //console.log(name)
     event.preventDefault()
     isName()
     isEmail()
@@ -144,8 +144,8 @@ const Register = () => {
     //   name: uname,
     //   phone: uphone,
     // })
-    //////console.log(formData)
-    console.log(isSignUpValid())
+    ////////console.log(formData)
+    //console.log(isSignUpValid())
 
     if (isSignUpValid()) {
       if (typeof window !== "undefined") {

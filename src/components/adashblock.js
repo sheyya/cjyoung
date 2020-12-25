@@ -14,16 +14,16 @@ const Adashblock = ({ answers, correctA, index, completed }) => {
   //   } else {
   //     crr = ["undefined"];
   //   }
-  ////console.log("//////", answers, correctA)
+  //////console.log("//////", answers, correctA)
 
-  //////console.log("----------", answers.slice(-1, 0))
+  ////////console.log("----------", answers.slice(-1, 0))
 
   //   if(answers.slice(-1))
 
-  //////console.log("------", index)
-  //////console.log(sid)
-  ////console.log(answers)
-  ////console.log(crr)
+  ////////console.log("------", index)
+  ////////console.log(sid)
+  //////console.log(answers)
+  //////console.log(crr)
   var showCmt = true
   if (answers === crr.toString()) {
     Icon = "correct"
@@ -33,16 +33,16 @@ const Adashblock = ({ answers, correctA, index, completed }) => {
     if (answers.slice(0, 3) === "cmt") {
       answers = answers.substring(4)
       Icon = "comment"
-      //console.log(answers)
+      ////console.log(answers)
       if (!answers || 1 === answers.length) {
         showCmt = false
       }
-      //console.log(answers.length)
+      ////console.log(answers.length)
 
-      //console.log("----")
+      ////console.log("----")
     }
   }
-  //////console.log("Icon", Icon)
+  ////////console.log("Icon", Icon)
 
   const icondisplay = () => {
     if (Icon === "correct") {

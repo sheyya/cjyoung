@@ -72,7 +72,7 @@ const PrincingPre = () => {
       }
     }
 
-    //console.log(config)
+    ////console.log(config)
 
     let data = {
       name: user.name,
@@ -80,12 +80,12 @@ const PrincingPre = () => {
       phone: user.phone,
       config: JSON.stringify(config),
     }
-    //console.log(data)
+    ////console.log(data)
 
     if (typeof window !== "undefined") {
       localStorage.setItem("data", JSON.stringify(data))
     }
-    ////console.log(data)
+    //////console.log(data)
     waittoast()
     return new Promise((resolve, reject) => {
       return axios
@@ -95,17 +95,17 @@ const PrincingPre = () => {
         )
         .then(result => {
           resolve({ code: 200, message: result.data.message })
-          // //console.log(result.data.id)
+          // ////console.log(result.data.id)
           if (typeof window !== "undefined") {
             localStorage.setItem("id", JSON.stringify(result.data.id))
           }
-          ////console.log("success")
+          //////console.log("success")
           // setShow(false)
           // setShowPhone(false)
           navigate("/thankyou")
         })
         .catch(err => {
-          //console.log("Failed", err)
+          ////console.log("Failed", err)
           errortoast()
           reject({ code: 0, error: err })
         })
@@ -114,9 +114,9 @@ const PrincingPre = () => {
   }
 
   if (typeof window !== "undefined") {
-    ////console.log("we are running on the client")
+    //////console.log("we are running on the client")
   } else {
-    ////console.log("we are running on the server")
+    //////console.log("we are running on the server")
   }
 
   return (

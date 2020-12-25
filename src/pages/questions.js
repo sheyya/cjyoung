@@ -42,7 +42,7 @@ const Questions = () => {
   const [temp, setTemp] = useState(false)
   const [temp1, setTemp1] = useState(false)
   const [showComment, setshowComment] = useState(true)
-  //console.log(sid, eid)
+  ////console.log(sid, eid)
 
   // const [position, setPosition] = useState(0)
   // const [trig, setTrig] = useState(false)
@@ -97,7 +97,7 @@ const Questions = () => {
   // }, [q1answer, q2answer, q3answer, q4answer, q5answer])
 
   const handleCheckbox = e => {
-    ////console.log(checkedq1)
+    //////console.log(checkedq1)
     if (sid < 4) {
       if (e.target.value === quiz.slice(sid, eid)[0].answers[0]) {
         setCheckedq1(old => !old)
@@ -145,39 +145,39 @@ const Questions = () => {
       }
     }
     let data
-    ////console.log(data)
+    //////console.log(data)
     if (sid === 0) {
       data = q1answer
       if (e.target.checked) {
-        //console.log("----", sid)
+        ////console.log("----", sid)
         if (data.indexOf(e.target.value) === -1) {
           data.push(e.target.value)
         }
         setq1Answer(data)
-        //console.log(q1answer)
+        ////console.log(q1answer)
       } else if (q1answer != null) {
-        //////console.log("removed", answer)
+        ////////console.log("removed", answer)
         setq1Answer(q1answer.filter(item => item !== e.target.value))
       }
     }
     if (sid === 1) {
       data = q2answer
       if (e.target.checked) {
-        //console.log("----", sid)
+        ////console.log("----", sid)
         if (data.indexOf(e.target.value) === -1) {
           data.push(e.target.value)
         }
         setq2Answer(data)
-        //console.log(q2answer)
+        ////console.log(q2answer)
       } else if (q2answer != null) {
-        //////console.log("removed", answer)
+        ////////console.log("removed", answer)
         setq2Answer(q2answer.filter(item => item !== e.target.value))
       }
     }
     if (sid === 2) {
       data = q3answer
       if (e.target.checked) {
-        //console.log("----", sid)
+        ////console.log("----", sid)
         if (data.indexOf(e.target.value) === -1) {
           if (e.target.value === "We don’t test this") {
             setCheckedq1(false)
@@ -192,22 +192,22 @@ const Questions = () => {
           }
         }
         setq3Answer(data)
-        //console.log(q3answer)
+        ////console.log(q3answer)
       } else if (q3answer != null) {
         if (q3answer[0] === "We don’t test this") {
-          //console.log("called")
+          ////console.log("called")
           setdisableq1(false)
           setdisableq2(false)
           setTemp1(false)
         }
-        //////console.log("removed", answer)
+        ////////console.log("removed", answer)
         setq3Answer(q3answer.filter(item => item !== e.target.value))
       }
     }
     if (sid === 3) {
       data = q4answer
       if (e.target.checked) {
-        //console.log("----", sid)
+        ////console.log("----", sid)
         if (data.indexOf(e.target.value) === -1) {
           if (e.target.value === "None of the above") {
             setCheckedq1(false)
@@ -224,45 +224,45 @@ const Questions = () => {
           }
         }
         setq4Answer(data)
-        //console.log(q4answer)
+        ////console.log(q4answer)
       } else if (q4answer != null) {
         if (q4answer[0] === "None of the above") {
-          //console.log("called")
+          ////console.log("called")
           setdisableq1(false)
           setdisableq2(false)
           setdisableq3(false)
           setTemp(false)
         }
-        //////console.log("removed", answer)
+        ////////console.log("removed", answer)
         setq4Answer(q4answer.filter(item => item !== e.target.value))
       }
     }
     if (sid === 4) {
       // data = q5answer
       // if (e.target.checked) {
-      // //console.log("----", sid)
+      // ////console.log("----", sid)
       // if (data.indexOf(e.target.value) === -1) {
       //   data.push(e.target.value)
       // }
       // setq5Answer(q5select)
-      // //console.log(q5answer)
+      // ////console.log(q5answer)
       // }
       // else if (q5answer != null) {
-      //   //////console.log("removed", answer)
+      //   ////////console.log("removed", answer)
       //   setq5Answer(q5answer.filter(item => item !== e.target.value))
       // }
     }
-    // //////console.log(answer);
+    // ////////console.log(answer);
   }
   const onChangeComment = e => {
-    // //////console.log(data);
+    // ////////console.log(data);
     // data.push(e.target.value);
     setComment(e.target.value)
-    //console.log("called")
+    ////console.log("called")
   }
 
   const nxtBtnClick = () => {
-    //console.log(comment)
+    ////console.log(comment)
     let adata
     if (
       !checkedq1 &&
@@ -283,12 +283,12 @@ const Questions = () => {
         setq1Chk5(checkedq5)
         setq1Chk6(checkedq6)
         setq1cmt(comment)
-        //console.log("-----")
+        ////console.log("-----")
         if (q1answer.indexOf("cmt: " + comment) === -1) {
           q1answer.push("cmt: " + comment)
         }
         adata = q1answer
-        //console.log(adata)
+        ////console.log(adata)
       }
       if (sid === 1) {
         setq2Chk1(checkedq1)
@@ -340,21 +340,21 @@ const Questions = () => {
         }
         adata = q5answer
       }
-      //console.log(q1chk1)
+      ////console.log(q1chk1)
 
       // let ques = quiz.slice(sid, eid)
       // let data = ques[0].question
       var data = sid
       var datan = data + 1
-      //console.log("datan", datan)
+      ////console.log("datan", datan)
 
       // setqVal(datan)
       if (typeof window !== "undefined") {
-        //console.log("qVal", datan)
+        ////console.log("qVal", datan)
 
         localStorage.setItem(datan, adata)
       } else {
-        ////console.log("we are running on the server")
+        //////console.log("we are running on the server")
       }
 
       if (sid < 4 && eid < 5) {
@@ -383,11 +383,11 @@ const Questions = () => {
       //   setPosition(position + 1)
       // }
       // if (sid === position || position - sid === 1) {
-      //console.log("qvaln.questionId", qvaln.questionId)
-      //console.log(datan)
+      ////console.log("qvaln.questionId", qvaln.questionId)
+      ////console.log(datan)
 
       if (datan + 1 === 1) {
-        //console.log("CALLED")
+        ////console.log("CALLED")
 
         if (q1chk1 || q1chk2 || q1chk3 || q1chk4 || q1chk5 || q1chk6) {
           setCheckedq1(q1chk1)
@@ -397,7 +397,7 @@ const Questions = () => {
           setCheckedq5(q1chk5)
           setCheckedq6(q1chk6)
           setComment(q1cmt)
-          //console.log("--")
+          ////console.log("--")
         } else {
           setComment("")
           setCheckedq1(false)
@@ -417,7 +417,7 @@ const Questions = () => {
           setCheckedq4(q2chk4)
           setCheckedq5(q2chk5)
           setComment(q2cmt)
-          //console.log("done")
+          ////console.log("done")
         } else {
           setComment("")
           setCheckedq1(false)
@@ -503,7 +503,7 @@ const Questions = () => {
       // setCheckedq5(false)
       // setCheckedq6(false)
       // }
-      ////console.log("------data----", adata)
+      //////console.log("------data----", adata)
     }
     // adata = null;
   }
@@ -537,7 +537,7 @@ const Questions = () => {
   const getquiz = async () => {
     setQuiz(JSONData)
   }
-  // //console.log(qvaln)
+  // ////console.log(qvaln)
 
   const classes = useStyles()
 
@@ -594,8 +594,8 @@ const Questions = () => {
                   style={{ backgroundColor: "#EA745Bt", color: "#000000" }}
                   startIcon={<KeyboardBackspaceIcon />}
                   onClick={() => {
-                    //////console.log(sid)
-                    //console.log(sid)
+                    ////////console.log(sid)
+                    ////console.log(sid)
                     // setTrig(true)
 
                     if (sid === 1) {
@@ -606,7 +606,7 @@ const Questions = () => {
                       setCheckedq5(q1chk5)
                       setCheckedq6(q1chk6)
                       setComment(q1cmt)
-                      //console.log("--")
+                      ////console.log("--")
                     }
                     if (sid === 2) {
                       setCheckedq1(q2chk1)
@@ -668,11 +668,11 @@ const Questions = () => {
                       navigate("/")
                     }
                     if (sid < 5) {
-                      //////console.log("run")
+                      ////////console.log("run")
 
                       setBtn("Next")
                     }
-                    //////console.log(eid, sid)
+                    ////////console.log(eid, sid)
                   }}
                 >
                   Back
@@ -683,7 +683,7 @@ const Questions = () => {
                   startIcon={<KeyboardArrowRightIcon />}
                   onClick={() => {
                     nxtBtnClick()
-                    //////console.log(eid, sid)
+                    ////////console.log(eid, sid)
                   }}
                 >
                   {btnName}

@@ -28,14 +28,14 @@ const Thankyou = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
 
     setEmailvalid(true)
-    //console.log(formData)
+    ////console.log(formData)
   }
 
   const handlePhoneChange = (phone, value) => {
     setFormData({ ...formData, phone: phone })
     setPhonevalid(true)
 
-    //console.log(formData)
+    ////console.log(formData)
   }
 
   const waittoast = () => {
@@ -94,14 +94,14 @@ const Thankyou = () => {
     if (!VALIDATORS.EMAIL(uemail)) {
       setEmailvalid(false)
     }
-    // console.log(namevalid)
+    // //console.log(namevalid)
   }
 
   const isPhone = () => {
     if (!VALIDATORS.PHONE(uphone)) {
       setPhonevalid(false)
     }
-    // console.log(namevalid)
+    // //console.log(namevalid)
   }
 
   const updateData = async event => {
@@ -115,14 +115,14 @@ const Thankyou = () => {
         email: formData.email,
         phone: formData.phone,
       }
-      // console.log(datal.config)
-      console.log("--------")
+      // //console.log(datal.config)
+      //console.log("--------")
 
       if (datal.config !== "") {
-        console.log("////////")
+        //console.log("////////")
 
         let datalconfig = JSON.parse(datal.config)
-        //console.log(datalconfig)
+        ////console.log(datalconfig)
 
         let questions = datalconfig.questions
         let selectedPackage = datalconfig.selectedPackage
@@ -135,82 +135,88 @@ const Thankyou = () => {
         }
 
         var datan = {
-          config: {
-            config: JSON.stringify(config),
-          },
+          config: JSON.stringify(config),
           email: user.email,
           phone: user.phone,
         }
 
-        // console.log(id)
-        console.log(datan)
+        // //console.log(id)
+        //console.log(datan)
 
-        try {
-          const response = await axios({
-            method: "PUT",
-            url: path.join(
-              "https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log",
-              id
-            ),
-            data: datan,
-          })
+        // try {
+        //   const response = await axios({
+        //     method: "put",
+        //     url: path.join(
+        //       "https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log",
+        //       id
+        //     ),
+        //     data: datan,
+        //   })
 
-          console.log(response.data)
-          waittoast()
-          setTimeout(
-            function () {
-              //Start the timer
-              navigate("/")
-            }.bind(this),
-            3350
-          )
-        } catch (error) {
-          const msg = "Server Error - Failed to update form information."
-          console.error(msg)
-          console.error(error)
-          errortoast()
-        }
-      } else {
-        nodatatoast()
-        setTimeout(
-          function () {
-            //Start the timer
-            navigate("/")
-          }.bind(this),
-          3350
-        )
+        //   //console.log(response)
+        //   waittoast()
+        //   setTimeout(
+        //     function () {
+        //       //Start the timer
+        //       // navigate("/")
+        //     }.bind(this),
+        //     3350
+        //   )
+        // } catch (error) {
+        //   const msg = "Server Error - Failed to update form information."
+        //   console.error(msg)
+        //   console.error(error)
+        //   errortoast()
+        // }
+
+        return new Promise((resolve, reject) => {
+          return axios
+            .put(
+              path.join(
+                "https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log",
+                id
+              ),
+              datan,
+
+              {
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Methods": "GET,PUT,POST",
+                "Access-Control-Allow-Origin": "*",
+                "Content-Type": "application/json",
+              }
+            )
+            .then(result => {
+              resolve({ code: 200, message: result.data.message })
+              ////console.log("success")
+              //console.log(result)
+              waittoast()
+              setTimeout(
+                function () {
+                  //Start the timer
+                  navigate("/")
+                }.bind(this),
+                3350
+              )
+            })
+            .catch(err => {
+              ////////console.log("Failed", err)
+              errortoast()
+              reject({ code: 0, error: err })
+              //console.log(err)
+            })
+        })
       }
-      // console.log(data)
-
-      // return new Promise((resolve, reject) => {
-      //   return axios
-      //     .put(
-      //       `https://enhpwk64el.execute-api.us-east-1.amazonaws.com/dev/log/${id}`,
-
-      //       data,
-      //       {
-      //         headers: {
-      //           "Access-Control-Allow-Headers": "*",
-      //           "Access-Control-Allow-Methods": "GET,PUT,POST",
-      //           "Access-Control-Allow-Origin": "*",
-      //           "Content-Type": "application/json",
-      //         },
-      //       }
-      //     )
-      //     .then(result => {
-      //       resolve({ code: 200, message: result.data.message })
-      //       //console.log("success")
-      //       //console.log(result)
-
-      //       waittoast()
-      //     })
-      //     .catch(err => {
-      //       //////console.log("Failed", err)
-      //       errortoast()
-      //       reject({ code: 0, error: err })
-      //     })
-      // })
+    } else {
+      nodatatoast()
+      setTimeout(
+        function () {
+          //Start the timer
+          navigate("/")
+        }.bind(this),
+        3350
+      )
     }
+    // //console.log(data)
   }
 
   useEffect(() => {
@@ -224,12 +230,12 @@ const Thankyou = () => {
         setId(idval)
         setFormData({ name, email, phone })
         setData(udata)
-        console.log(datal)
+        //console.log(datal)
       }
     }
-    // ////console.log("///////", phone, email)
+    // //////console.log("///////", phone, email)
     if (typeof window !== "undefined") {
-      localStorage.clear()
+      // localStorage.clear()
     }
   }, [])
 
