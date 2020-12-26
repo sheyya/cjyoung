@@ -57,7 +57,7 @@ const Dashboard = () => {
   })
   const [completed, setCompleted] = useState(0)
   var comp = 0
-  var score = 0
+  // var score = 0
   const completedup = val => {
     //console.log(val)
     comp = comp + val
@@ -65,7 +65,7 @@ const Dashboard = () => {
     if (comp > 96) {
       setCompleted(100)
     }
-    score = comp
+    // score = comp
     // //console.log(comp)
   }
 
@@ -228,7 +228,7 @@ const Dashboard = () => {
                   color: score > 70 ? "#1abc9c" : "#f1c40f",
                 }}
               >
-                {score}%
+                {completed}%
               </p>
               <ProgressBar bgcolor={"#1abc9c"} completed={completed} />
               <p
