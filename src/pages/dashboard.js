@@ -225,7 +225,7 @@ const Dashboard = () => {
                 style={{
                   fontWeight: "500",
                   fontSize: "40px",
-                  color: score > 70 ? "#1abc9c" : "#f1c40f",
+                  color: completed > 70 ? "#1abc9c" : "#f1c40f",
                 }}
               >
                 {completed}%
